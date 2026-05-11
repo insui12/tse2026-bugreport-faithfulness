@@ -1,0 +1,5 @@
+entity_type,total_in_input,total_in_retrieval,total_in_output,total_unattributed,rows_with_entity,rows_total,pct_rows_with_entity
+URL,5848,11009,8922,5406,6278,16813,37.3
+HASH,6536,23160,22485,9945,11033,16813,65.6
+FILE,1978,7232,8281,4690,7697,16813,45.8
+FLAG,15179,22753,25879,7557,10625,16813,63.2

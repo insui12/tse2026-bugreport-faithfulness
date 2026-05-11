@@ -1,0 +1,9 @@
+pool,n_prompts,n_candidates,candidates_per_prompt,score_mean,score_std,score_median,score_min,score_max,uahe_mean,uahe_median,cond_filled_mean,per_prompt_spread_mean,per_prompt_spread_median
+dpo_pairs_llama-3.2-3b_seed42_balanced_retrieval_aware_emse_re_eval_final_retrieval_aware_balanced_99f790af75d3_20260227_205117,3139,12556,4.0,0.2376,0.2453,0.135,0.0,0.8,8.0278,6.689,0.5741,0.183,0.1282
+dpo_pairs_llama-3.2-3b_seed42_balanced_retrieval_free_emse_re_eval_final_retrieval_free_balanced_95dbf19a5862_20260227_041724,3139,12556,4.0,0.1591,0.17,0.135,0.0,0.8,14.4815,13.7457,0.5877,0.1582,0.1349
+dpo_pairs_mistral-7b-v0.3_seed42_balanced_retrieval_aware_emse_re_eval_final_retrieval_aware_balanced_de7230c0e200_20260228_091326,3139,12556,4.0,0.2357,0.2328,0.1537,0.0,0.8,8.0136,7.2202,0.5932,0.1809,0.1368
+dpo_pairs_mistral-7b-v0.3_seed42_balanced_retrieval_free_emse_re_eval_final_retrieval_free_balanced_a047fca5bb24_20260227_080642,3139,12556,4.0,0.1822,0.183,0.135,0.0,0.8,11.4414,10.6952,0.6036,0.1437,0.0984
+dpo_pairs_qwen2.5-7b_seed42_balanced_retrieval_aware_emse_re_eval_final_retrieval_aware_balanced_4c847c7306ae_20260227_153457,3139,12556,4.0,0.168,0.1914,0.1348,0.0,0.8,11.7012,11.0497,0.5626,0.1414,0.075
+dpo_pairs_qwen2.5-7b_seed42_balanced_retrieval_free_emse_re_eval_final_retrieval_free_balanced_e952e07a4267_20260227_003808,3139,12556,4.0,0.1336,0.1598,0.132,0.0,0.8,14.9058,14.2857,0.5443,0.108,0.0142
+dpo_pairs_qwen2.5-7b_seed42_hard_retrieval_free_emse_re_eval_final_retrieval_free_hard_aefad270af43_20260228_175650,3139,12556,4.0,0.0399,0.089,0.0,0.0,0.7,14.8308,14.218,0.5456,0.0584,0.0
+dpo_pairs_qwen2.5-7b_seed42_structure_retrieval_free_emse_re_eval_final_retrieval_free_structure_cecdfdfad71f_20260228_211305,3139,12556,4.0,0.2743,0.2722,0.402,0.0,0.9,14.8308,14.218,0.5456,0.1658,0.003

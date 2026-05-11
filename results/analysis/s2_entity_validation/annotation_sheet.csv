@@ -1,0 +1,2862 @@
+row_id,model,adapter_type,condition_id,input_text,gen_text,regex_URL_count,regex_URL_items,regex_URL_unattr,human_URL_TP,human_URL_FP,human_URL_FN,regex_HASH_count,regex_HASH_items,regex_HASH_unattr,human_HASH_TP,human_HASH_FP,human_HASH_FN,regex_FILE_count,regex_FILE_items,regex_FILE_unattr,human_FILE_TP,human_FILE_FP,human_FILE_FN,regex_FLAG_count,regex_FLAG_items,regex_FLAG_unattr,human_FLAG_TP,human_FLAG_FP,human_FLAG_FN,human_notes
+3027,qwen2.5-7b,sft,55613bb5e293,"Here's a rewritten version of the bug report in a natural, conversational tone:
+
+Hey team, I've got an issue to share with you. So, when I tested this on Firefox, I found that if you upload a file with a dangerous type (like an SVG) to your profile picture on accounts.firefox.com, it allows for stored XSS attacks - but, luckily, the Content Security Policy (CSP) blocked it from executing immediately. However, what's concerning is that the malicious image file gets stored on the server storage, w","created attachment 9225601
+xss.svg
+
+user agent: mozilla/5.0 (windows nt 10.0; win64; x64; rv:91.0) gecko/20100101 firefox/91.0
+
+steps to reproduce:
+
+1. open firefox.
+2. go to https://accounts.firefox.com/
+3. click on change profile picture.
+4. attach a file with svg extension (e.g. xss.svg).
+5. right click on the image and inspect the element.
+6. preview the uploaded image in a new tab.
+7. click the link or reload the page.
+8. save the image and right click on your profile picture.
+9. open the link in a new tab.
+
+
+actual results:
+
+the xss attack is executed.
+
+expected results:
+
+the xss attack shouldn't be executed in the first place, but if not, then it should be filtered out by the csp.
+
+note: the csp is not strict enough to block the attack, but the malicious image file is stored on the server storage, which makes this a potential vulnerability.",1,https://accounts.firefox.com/,https://accounts.firefox.com/,,,,2,9225601; 20100101,20100101; 9225601,,,,0,,,,,,4,xss.svg; accounts.firefox.com; e.g; xss.svg,e.g,,,,
+733,llama-3.2-3b,sft,74a9941d94f4,"Here's a rewritten version of the bug report in a natural, conversational tone:
+
+""I've got a weird issue going on. Ever since I upgraded to Firefox 114, I'm unable to use proxy servers that require basic authentication - you know, the ones where you need to enter your username and password. I tried using different add-ons like FoxyProxy, SwitchyOmega, or SmartProxy, but none of them work. We're currently set up with a proxy server at https://our.proxy:port that requires basic auth. When I try to","created attachment 9236144
+screenshot of the issue
+
+**affected versions:**
+- firefox 114
+
+**tested on:**
+- windows 10
+- macos 10.15
+- ubuntu 18.06
+
+**preconditions:**
+- have a proxy server that requires basic auth (e.g. https://our.proxy:port)
+
+**steps to reproduce:**
+1. try to use a proxy server that requires basic auth (e.g. https://our.proxy:port) using any add-on that supports proxy servers (e.g. foxyproxy, switchyomega, smartproxy)
+
+**expected results:**
+the add-on should ask for the username and password fields when setting up the proxy.
+
+**actual result:**
+the add-on does not ask for the username and password fields when setting up the proxy.
+
+**notes:**
+- the issue is not reproducible on firefox 113.
+- the issue is reproducible on firefox 114, 115 and 116.
+- the issue is not reproducible on chrome.
+- the issue is reproducible on a proxy server that does not require any authentication.
+- the issue is reproducible on a proxy server that requires only a username.
+- the issue is re",2,https://our.proxy:port); https://our.proxy:port),https://our.proxy:port),,,,1,9236144,9236144,,,,0,,,,,,5,e.g; our.proxy; e.g; our.proxy; e.g,e.g,,,,
+1793,llama-3.2-3b,sft,1be1825eb465,"Here's a rewritten version of the bug report in a conversational tone:
+
+So I've got an issue with Firefox Nightly 93.0a1 (build id: 20210820095755) on both Windows 10 x64 and Ubuntu 20.04 x64. To reproduce this, you'll need to have a specific profile set up - specifically, one where the ""messaging-system.rsexperimentloader.collection_id"" pref is set to ""nimbus-preview"" in about:config. You'll also need the ""Remote Settings Devtools"" add-on installed (you can grab it from here: https://github.com","created attachment 9237189
+rec of the issue.gif
+
+**[affected versions]:**
+- firefox nightly 93.0a1 - build id: 20210820095755
+
+**[affected platforms]:**
+- windows 10 x64
+- ubuntu 20.04 x64
+
+**[prerequisites]:**
+- have a firefox profile with the ""messaging-system.rsexperimentloader.collection_id"" pref set to ""nimbus-preview"" in the ""about:config"" page.
+- have the ""remote settings devtools"" add-on installed from [here](https://github.com/mozilla-extensions/remote-settings-devtools/releases).
+- have a captive portal available but you are **not** connected to it.
+
+**[steps to reproduce]:**
+1. open the browser with the profile from prerequisites and click the ""remote settings devtools"" toolbar button.
+2. change the ""environment"" to ""stage"" and restart the browser.
+3. connect to the captive portal from the prerequisites.
+4. click the ""open network login page"" button from the infobar.
+5. enter your credentials and log in to the captive portal.
+6. click the ""learn more"" button and observe the ",2,"https://github.com/mozilla-extensions/remote-settings-devtools/releases).; https://www.mozilla.org/en-us/products/vpn/""","https://www.mozilla.org/en-us/products/vpn/""",,,,2,9237189; 20210820095755,9237189,,,,1,issue.gif,issue.gif,,,,3,system.rsexperimentloader.collection_id; github.com; www.mozilla.org,www.mozilla.org,,,,
+470,qwen2.5-7b,dpo,84fe8970df89,"Here's a rewritten version of the bug report in a natural tone:
+
+""I just found something weird going on in Firefox Android - specifically with version 121.0.1 (build #22015995071). So, if you name a file to download using certain special characters like backslashes (\), tabs (\t), or newlines (\n), the downloaded file won't show up in your download history. This could lead to some serious confusion for users - they'll have no way of keeping track of where their files are! To reproduce this issue","**found in**
+* 121.0.1 (build #22015995071)
+
+**affected versions**
+* 121.0.1 (build #22015995071)
+
+**tested platforms**
+* affected platforms: android
+* unaffected platforms: none
+
+**preconditions**
+* make sure you have a file with an escape character in order to download it
+
+**steps to reproduce**
+1. open a file with an escape character
+2. click download
+3. check the download history
+
+**expected result**
+* the downloaded file is shown in the download history
+
+**actual result**
+* the downloaded file is not shown in the download history
+
+**notes**
+* the issue occurs because the file name contains escape characters (\, \t, \n)
+* maybe we could replace the escape characters with underscores or random strings?
+* this could confuse users",0,,,,,,2,22015995071; 22015995071,,,,,0,,,,,,0,,,,,,
+48,mistral-7b-v0.3,sft,2037ae17cb12,"Here's a rewritten version of the bug report in a conversational tone:
+
+I'm still having issues with my Firefox account - it's been a real frustration! So, I got a new computer and tried to log back into my Firefox account to recover some old bookmarks (I'd synced them across devices). But when I went to login, Firefox told me that a verification email was sent to my email address. The thing is, our website at crachrecords.org (where the email address is registered) had gone down because we didn","created attachment 9234113
+screenshot 2021-09-01 at 15.00.00.png
+
+user agent: mozilla/5.0 (windows nt 10.0; win64; x64; rv:93.0) gecko/20100101 firefox/93.0
+
+steps to reproduce:
+
+i got a new computer and wanted to log in to my firefox account to recover my bookmarks (i synced them across devices).
+
+
+actual results:
+
+i got the message that a verification email was sent to my email address.
+
+
+expected results:
+
+the email was sent to my email address but was sent back because our website (crachrecords.org) was down because we didn't pay our webspace provider. i paid yesterday and everything is online again.
+
+i tried to log in again but it still says that my account is blocked and to check the support pages.
+
+the support pages say to try again in 24 hours. i tried again today but it still says that my account is blocked and to check the support pages.
+
+it's not a minor annoyance for me because i put in countless hours collecting the bookmarks and need them for projects i'm working on.",0,,,,,,2,9234113; 20100101,20100101; 9234113,,,,1,15.00.00.png,15.00.00.png,,,,1,crachrecords.org,,,,,
+1575,llama-3.2-3b,sft,bfbb0ee0b9d2,"Here's the rewritten bug report in a natural tone:
+
+So I've got this weird issue with Firefox - basically, when I'm on certain versions (beta 93.0b4 and nightly 94.0a1) on Windows 10, Linux Mint 20, or macOS 11.1, links in the suggestions modal aren't selectable using the tab or arrow keys. Here's how it happens: first, you need to have Firefox installed and opened, with some specific preferences set (like enabling quick suggests and setting certain scenarios). Then, restart the browser, dismiss","created attachment 9232165
+suggestions modal - links not selectable.gif
+
+**[affected versions]:**
+- firefox beta 93.0b4 (build id: 20210513185752);
+- firefox nightly 94.0a1 (build id: 20210513214800);
+
+**[affected platforms]:**
+- windows 10;
+- linux mint 20;
+- macos 11.1;
+
+**[prerequisites]:**
+- have the latest firefox installed.
+- have the following prefs set: 
+- `browser.urlbar.quicksuggest.enabled` to `true`.
+- `browser.urlbar.quicksuggest.showedonboardingdialog` to `true`.
+- `browser.urlbar.quicksuggest.scenario` to `online`.
+- `browser.urlbar.quicksuggest.showedonboardingdialog` to `true`.
+
+**[steps to reproduce]:**
+1. open the firefox browser with the profile from prerequisites.
+2. restart the browser.
+3. dismiss the ""make firefox default"" message if it is displayed.
+4. using the keyboard, select the ""learn more"" or ""not now"" links.
+5. observe the behavior.
+
+**[expected result]:**
+- the links are selectable.
+
+**[actual result]:**
+- the links are not selectable.
+
+**[additional not",1,https://drive.google.com/file/d/1lum8xdmivhrrbwhs3a0hhjxrece1bqea/view?usp=sharing).,https://drive.google.com/file/d/1lum8xdmivhrrbwhs3a0hhjxrece1bqea/view?usp=sharing).,,,,3,9232165; 20210513185752; 20210513214800,20210513185752; 20210513214800; 9232165,,,,1,selectable.gif,selectable.gif,,,,5,browser.urlbar.quicksuggest.enabled; browser.urlbar.quicksuggest.showedonboardingdialog; browser.urlbar.quicksuggest.scenario; browser.urlbar.quicksuggest.showedonboardingdialog; drive.google.com,browser.urlbar.quicksuggest.enabled; browser.urlbar.quicksuggest.scenario; browser.urlbar.quicksuggest.showedonboardingdialog; drive.google.com,,,,
+267,llama-3.2-3b,base,b22071a19668,"Here's a rewritten version of the bug report in a natural, conversational tone:
+
+I'm experiencing an issue with Firefox 124 where dragging and dropping text from a PDF or simple text file into a CMS box doesn't work correctly anymore. In Firefox 123, this worked fine - I could drag and drop text containing characters like à, á, é, è, ç, « », ô, õ (which are important for my work with Portuguese and French languages) without any issues. But now, in Firefox 124, these special characters show up as","Here's a structured bug report based on the input:
+
+**affected versions**
+- Firefox 124
+
+**affected platforms**
+- Desktop (not specified, but likely Windows or macOS)
+
+**steps to reproduce**
+1. Open Firefox 124.
+2. Create a new tab or window.
+3. Open a PDF or text file containing special characters (e.g. à, á, é, è, ç, « », ô, õ).
+4. Drag and drop the text from the PDF or text file into a CMS box or form.
+
+**expected result**
+- The special characters should display correctly (e.g. à, á, é, è, ç, « », ô, õ).
+
+**actual result**
+- The special characters display as Unicode codes (e.g. \u00e0, \u00e1, etc.).
+
+**regression range**
+- Not provided
+
+**notes**
+- This issue affects multiple users, including the reporter and others mentioned in the input.
+- The reporter has tried copying and pasting the text instead, but the issue persists.",0,,,,,,0,,,,,,0,,,,,,3,e.g; e.g; e.g,e.g,,,,
+2970,llama-3.2-3b,sft,9f130b369b56,"Here's a rewritten version of the bug report in a conversational tone:
+
+""I was trying to check out some documentation on Firefox's source code and I stumbled upon an issue with one of the pages. Specifically, when I opened https://firefox-source-docs.mozilla.org/contributing/build/artifact_builds.html#things-that-are-not-supported, everything looked normal at first - but then I saw that there was this weird escaped HTML tag in the ""Things That Are Not Supported"" section, right in the first list ","created attachment 9280595
+screenshot 2022-06-10 113942.jpg
+
+user agent: mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/102.0.5005.63 safari/537.36
+
+steps to reproduce:
+
+1. go to https://firefox-source-docs.mozilla.org/contributing/build/artifact_builds.html#things-that-are-not-supported
+2. see `# <a href=""https://hg.mozilla.org/mozilla-central/rev/2b9a5b9b9b9a"">2b9a5b9b9b9a</a> things that are not supported`
+
+
+actual results:
+
+i can see escaped html tag in the first list item.
+
+
+expected results:
+
+the html link should be parsed and displayed correctly.",2,"https://firefox-source-docs.mozilla.org/contributing/build/artifact_builds.html#things-that-are-not-supported; https://hg.mozilla.org/mozilla-central/rev/2b9a5b9b9b9a"">2b9a5b9b9b9a</a>","https://firefox-source-docs.mozilla.org/contributing/build/artifact_builds.html#things-that-are-not-supported; https://hg.mozilla.org/mozilla-central/rev/2b9a5b9b9b9a"">2b9a5b9b9b9a</a>",,,,3,9280595; 2b9a5b9b9b9a; 2b9a5b9b9b9a,2b9a5b9b9b9a; 9280595,,,,1,113942.jpg,113942.jpg,,,,3,docs.mozilla.org; artifact_builds.html; hg.mozilla.org,hg.mozilla.org,,,,
+276,qwen2.5-7b,dpo,84fe8970df89,"Here's the rewritten bug report:
+
+I'm running into an issue where there's a delay when setting Firefox as the default browser through the about:welcome page in MSIX builds, specifically versions 125.0a1, 125.0b2, and 124.0. I've tested it on Windows 10x64 and Windows 11 (with or without Microsoft One-Click Rollout), but it's not happening on Mac OS 12 or Ubuntu 23.10. The weird thing is that this only happens when Firefox is set as the default browser - if Chrome is the default, no delay occurs.","**found in**
+* 125.0a1, 125.0b2, 124.0 
+
+**affected versions**
+* 125.0a1, 125.0b2, 124.0 
+
+**tested platforms**
+* affected platforms: windows 10x64, windows 11 (with or without microsoft one-click rollout)
+* unaffected platforms: macos 12, ubuntu 23.10
+
+**preconditions**
+* normal firefox or edge is set as the default browser
+
+**steps to reproduce**
+1. open about:welcome and select to set firefox as the default.
+2. there is a delay before the next welcome screen is displayed.
+
+**expected result**
+* the step to set firefox as the default should be done instantly.
+
+**actual result**
+* there is a delay when setting firefox as the default.
+
+**additional notes**
+* attached a screen recording of the issue: [link](https://drive.google.com/file/d/1evklg45lmsehgqexh-o7n2ttsh7w51yj/view?usp=sharing).
+* this issue is not reproducible if chrome is set as the default browser.
+* this issue is not reproducible on normal firefox builds.
+* i am not sure if this is the expected behavior for msix builds, ",1,https://drive.google.com/file/d/1evklg45lmsehgqexh-o7n2ttsh7w51yj/view?usp=sharing).,https://drive.google.com/file/d/1evklg45lmsehgqexh-o7n2ttsh7w51yj/view?usp=sharing).,,,,0,,,,,,0,,,,,,1,drive.google.com,drive.google.com,,,,
+1737,llama-3.2-3b,sft,74a9941d94f4,"Here's a rewritten version of the bug report in a conversational tone:
+
+""I was messing around with dates on a website when I noticed something weird. So, I had some JavaScript code that displayed a new date on a webpage (doesn't matter what site it was), and everything looked normal. Then, I changed my computer's timezone (just for kicks) and refreshed the page. But here's the thing - instead of updating to match my new timezone, the date still showed up in the old one! It was like the website w","created attachment 9233435
+datetime.png
+
+user agent: mozilla/5.0 (windows nt 10.0; win64; x64; rv:92.0) gecko/20100101 firefox/92.0
+
+steps to reproduce:
+
+i have a javascript code that displays a new date on a webpage. the date is displayed correctly, but when i change my computer's timezone, the date is not updated to the new timezone. i have tried to refresh the page, but the date is still displayed in the old timezone. 
+
+i have tried to open the same webpage in chrome, and it displays the correct datetime and timezone.
+
+
+actual results:
+
+the date is displayed in the old timezone.
+
+
+expected results:
+
+the date should be displayed in the new timezone.
+
+this issue is reproducible on windows 10, firefox 92.0.",0,,,,,,2,9233435; 20100101,20100101; 9233435,,,,1,datetime.png,datetime.png,,,,0,,,,,,
+1683,qwen2.5-7b,sft,5bd008e68aea,"Here's a rewritten version of the bug report in a natural, conversational tone:
+
+So, I've been testing out Firefox Nightly (version 106.0a1) and I stumbled upon this weird issue. I had the messaging-system.rsexperimentloader.collection_id set to nimbus-preview and nimbus.debug enabled, which might be important context. Anyway, here's what happened: I installed the nightly build on my default elevated profile, ran a background update task in Task Scheduler (yeah, it's a thing), clicked the ""X"" to","created attachment 9319989
+2022-09-09_notif.mp4
+
+**[affected versions]:**
+- firefox nightly 106.0a1 (build id: 20220909091800)
+
+**[affected platforms]:**
+- windows 10 x64
+- windows 11 x64
+
+**[prerequisites]:**
+- have the firefox nightly build installed on a default elevated profile.
+- have the following prefs set: 
+- `messaging-system.rsexperimentloader.collection_id` to `nimbus-preview`.
+- `nimbus.debug` to `true`.
+
+**[steps to reproduce]:**
+1. open the browser with the profile from the prerequisites.
+2. run a background update task using the task scheduler.
+3. click the ""x"" button from the notification area to move the notification to the action center.
+4. trigger again a background update task using the task scheduler.
+5. click the ""open firefox now"" toast notification.
+6. observe the behavior.
+
+**[expected result]:**
+- the notification is dismissed and firefox is launched.
+
+**[actual result]:**
+- the notification is dismissed and a new firefox instance is launched every time.
+
+**[n",0,,,,,,2,9319989; 20220909091800,20220909091800; 9319989,,,,1,2022-09-09_notif.mp4,,,,,2,system.rsexperimentloader.collection_id; nimbus.debug,,,,,
+566,qwen2.5-7b,dpo,84fe8970df89,"Here's the rewritten bug report:
+
+I found an issue with Firefox's VoiceOver functionality - basically, when I have VoiceOver turned on and navigate to the ""About Preferences"" page in Firefox, specifically to the section about data collection and use, VoiceOver doesn't read out the option ""Allow Firefox to send backlogged crash reports on your behalf"". Instead, it just says ""unticked, checkbox"". This is a problem because I should be able to hear the option being read like all the other ones befor","**found issue**
+when the user uses voiceover on macos 10.13.6, he will notice that the ""allow firefox to send backlogged crash reports on your behalf"" option is not read by voiceover when navigating to the ""about preferences"" page in firefox, specifically to the section about data collection and use.
+
+**affected versions**
+- firefox 120.0
+- 121.0a1
+
+**tested on**
+- macos 13.6.1
+- windows 10
+- ubuntu 22.04
+
+**steps to reproduce**
+1. launch firefox.
+2. access a random page.
+3. open the browser console.
+4. interact with the browser console by:
+4.1 clicking the ""clear the web console output"".
+4.2 closing the browser console.
+4.3 restart the browser via the browser console.
+
+**actual result**
+- firefox crashes
+
+**expected result**
+- firefox does not crash
+
+**regression range**
+- will search for one asap.
+
+**additional notes**
+- for further information regarding this issue, access this [link](https://drive.google.com/file/d/1ya-omaechlsmz0b0_2kl0psmhctkz_hj/view?usp=sharing) for screencast (",1,https://drive.google.com/file/d/1ya-omaechlsmz0b0_2kl0psmhctkz_hj/view?usp=sharing),https://drive.google.com/file/d/1ya-omaechlsmz0b0_2kl0psmhctkz_hj/view?usp=sharing),,,,0,,,,,,0,,,,,,1,drive.google.com,drive.google.com,,,,
+3725,qwen2.5-7b,sft,223177bb96b6,"Here's the rewritten bug report:
+
+I'm running into this weird issue where the remove button in the settings isn't behaving as expected. It happens on versions 99.0.1 and 101.0a1, specifically on my Mac (running macOS 10.15.7 and 10.13.6). To reproduce it, I follow these steps: first, I open up the settings, then click the ""Choose..."" button in the language section, which brings up a list of languages to add. I add some languages, observe that the buttons on the left are there, and then I remove ","created attachment <hash>
+remove button.png
+
+**[affected versions]:**
+- firefox release 99.0.1 (build id: <hash>)
+- firefox nightly 101.0a1 (build id: <hash>)
+
+**[affected platforms]:**
+- macos 10.15.7
+- macos 10.13.6
+
+**[prerequisites]:**
+- have the latest version of firefox release 99.0.1 installed/extracted and opened.
+
+**[steps to reproduce]:**
+1. open the settings.
+2. click the ""choose..."" button from the ""language"" section.
+3. add some languages and observe that the buttons on the left are displayed.
+4. remove all the languages added in step 3.
+5. observe the ""remove"" button.
+
+**[expected result]:**
+- the ""remove"" button is greyed out or unavailable when there are no languages selected (i.e. the box is empty).
+
+**[actual result]:**
+- the ""remove"" button is available even when there are no languages in the list.
+
+**[notes]:**
+- the ""add"" button is not active if no language is selected from the ""select a language to add..."" field.",0,,,,,,0,,,,,,1,button.png,button.png,,,,1,i.e,,,,,
+3258,llama-3.2-3b,sft,7284e62a32dd,"Here's the rewritten bug report in a conversational tone:
+
+""So, I was trying to set up my Gmail account for this thing ( attachment 9215973 is the screenshot) and it didn't work out. Here's what happened: I filled out all the necessary info and hit the 'done' button, but instead of moving forward with setting up my email account, I got an error message - like, exactly as shown in the screenshot. That's not what was supposed to happen at all! I thought for sure that once I hit 'done', I'd be able","created attachment 9215973
+screenshot 2021-03-05 172253.png
+
+user agent: mozilla/5.0 (windows nt 10.0; win64; x64; rv:88.0) gecko/20100101 firefox/88.0
+
+steps to reproduce:
+
+i tried to set up my gmail account, but it failed.
+
+
+actual results:
+
+the error message is shown in the screenshot.
+
+
+expected results:
+
+the setup should have proceeded after hitting the ""done"" button.",0,,,,,,2,9215973; 20100101,20100101,,,,1,172253.png,172253.png,,,,0,,,,,,
+348,qwen2.5-7b,sft,3db526353bb3,"Here's a rewritten version of the bug report in a conversational tone:
+
+""Hey, I've got an issue with Firefox that only happens when both trending search suggestions and recent searches are enabled. Check out this screenshot [attached] for more details. The problem is that when I launch Firefox with my usual settings (default search engine is Google, VPN connected to US/CA), perform a few searches, then turn off trending search suggestions in the about:preferences#search menu, the Recent Searches","created attachment 9389090
+issue
+
+**notes**
+* please refer to the screen recording for more details. 
+
+**found in**
+* firefox 124.0b6;
+
+**affected versions**
+* firefox 124.0b6;
+* firefox nightly 125.0a1;
+
+**tested platforms**
+* windows 10;
+* macos 12;
+* ubuntu 22;
+
+**unaffected platforms**
+* n/a;
+
+**preconditions**
+* browser.urlbar.suggest.recentsearches = true
+* browser.urlbar.suggest.trending =true
+* browser.urlbar.trending.featuregate = true
+* browser.urlbar.recentsearches.featuregate = true
+* browser.urlbar.trending.requiresearchmode = false
+* vpn connected to us/ca.
+* google set as default search engine
+
+**steps to reproduce**
+1. launch firefox.
+2. perform several searches.
+3. open about:preferences#search and uncheck the “show trending search suggestions” option.
+4. open a new tab and observe the ui.
+
+**expected result**
+* recent searches are placed below top sites.
+
+**actual result**
+* recent searches are placed above top sites and the “shortcuts” string is displayed.
+
+**regress",0,,,,,,1,9389090,9389090,,,,0,,,,,,5,browser.urlbar.suggest.recentsearches; browser.urlbar.suggest.trending; browser.urlbar.trending.featuregate; browser.urlbar.recentsearches.featuregate; browser.urlbar.trending.requiresearchmode,browser.urlbar.recentsearches.featuregate; browser.urlbar.suggest.recentsearches; browser.urlbar.suggest.trending; browser.urlbar.trending.featuregate; browser.urlbar.trending.requiresearchmode,,,,
+1662,mistral-7b-v0.3,dpo,921c362b8439,"Here's the rewritten bug report:
+
+Hey, I'm experiencing an issue with Normandy Devtools and Firefox (version 91.0.2) across multiple platforms - Windows 10, macOS 11.4.2, and Ubuntu Linux 20.04. To reproduce this, you'll need to have the ""Normandy Devtools"" add-on installed and a disabled Normandy recipe created. Here's what I've done:
+
+First, open up Firefox with the relevant profile. Next, fire up the Normandy Devtools, log in with valid credentials, switch to the ""stage"" environment, open the","**[affected versions]:**
+firefox 91.0.2
+
+**[affected platforms]:**
+- windows 10
+- macos 11.4.2
+- ubuntu linux 20.04
+
+**[prerequisites]:**
+- have the ""normandy devtools"" add-on installed.
+- have a disabled normandy recipe created.
+
+**[steps to reproduce]:**
+1. open the browser with the profile from prerequisites.
+2. open the normandy devtools, log in with valid credentials, switch to the ""stage"" environment, open the disabled recipe, and then enable the network monitor (ctrl+shift+e).
+3. click the ""enable"" button at the top-right corner of the page and observe the network monitor's output.
+
+**[expected results]:**
+- the recipe is enabled and becomes available in the ""main/normandy-recipes-capabilities"" collection after about 10 minutes.
+
+**[actual results]:**
+- a 500 server error is displayed in the network monitor and the recipe is not showing in the collection.
+
+**[regression range]:**
+- not a regression.
+
+**[notes]:**
+- a recording of the issue can be seen [here](https://drive.google",2,https://drive.google.com/file/d/1ravkanxrxsknjercdqo-adbzshhct9ev/view?usp=sharing).; https://drive.google.com/file/d/1ravkanxrxsknjercdqo-adbzshhct9ev/view?usp=sharing).,https://drive.google.com/file/d/1ravkanxrxsknjercdqo-adbzshhct9ev/view?usp=sharing).,,,,0,,,,,,0,,,,,,2,drive.google.com; drive.google.com,drive.google.com,,,,
+3491,llama-3.2-3b,sft,1be1825eb465,"Here's the rewritten bug report:
+
+""I'm running into an issue with Firefox version 89.0a1 on MacOS 10.15.7, Windows 10, and Ubuntu 20.04. Here's what I did: I launched Firefox, went to about:config, and toggled the ""extensions.pocket.enabled"" setting from false to true. Then, I clicked the Pocket button in my toolbar. What should've happened is that the Pocket dropdown would work as usual. But instead, it just stopped working altogether.
+
+If you want to see this issue for yourself, here's what yo","created attachment 9212433
+pocke5_cust.gif
+
+*affected versions*
+* 89.0a1 (20210329214331)
+
+
+	
+*affected platforms*
+* macos 10.15.7
+* windows 10x64
+* ubuntu 20.04
+
+
+*steps to reproduce*
+1. launch firefox.
+2. access about:config and toggle `extensions.pocket.enabled:false` to `true`.
+3. click the pocket button from the toolbar.
+
+
+*expected result*
+*  the pocket dropdown is working as expected.
+
+*actual result*
+*  the pocket dropdown is not working.
+
+*regression range*
+*  will come back with one asap.
+
+*notes*
+* attached a screen recording.
+*  this happens with proton enabled and disabled as well.",0,,,,,,2,9212433; 20210329214331,20210329214331; 9212433,,,,1,pocke5_cust.gif,pocke5_cust.gif,,,,1,extensions.pocket.enabled:false,extensions.pocket.enabled:false,,,,
+1683,llama-3.2-3b,sft,1be1825eb465,"Here's a rewritten version of the bug report in a natural, conversational tone:
+
+So, I've been testing out Firefox Nightly (version 106.0a1) and I stumbled upon this weird issue. I had the messaging-system.rsexperimentloader.collection_id set to nimbus-preview and nimbus.debug enabled, which might be important context. Anyway, here's what happened: I installed the nightly build on my default elevated profile, ran a background update task in Task Scheduler (yeah, it's a thing), clicked the ""X"" to","created attachment 9292215
+2022-09-09_notif.mp4
+
+**[affected versions]:**
+- firefox nightly 106.0a1 - build id: 20220909091700
+
+**[affected platforms]:**
+- windows 10 x64
+- macos 11.5.2
+- ubuntu 20.04 x64
+
+**[prerequisites]:**
+- have a firefox profile with the ""messaging-system.rsexperimentloader.collection_id"" pref set to ""nimbus-preview"" in the ""about:config"" page.
+- have the ""nimbus-preview"" feature enabled in the ""about:config"" page.
+- have the ""nimbus.debug"" pref set to ""true"" in the ""about:config"" page.
+- have the ""messaging-system.rsexperimentloader.collection_id"" pref set to ""nimbus-preview"" in the ""about:config"" page.
+- have the ""messaging-system.rsexperimentloader.collection_id"" pref set to ""nimbus-preview"" in the ""about:config"" page.
+- have the ""messaging-system.rsexperimentloader.collection_id"" pref set to ""nimbus-preview"" in the ""about:config"" page.
+- have the ""messaging-system.rsexperimentloader.collection_id"" pref set to ""nimbus-preview"" in the ""about:config"" page.
+- hav",0,,,,,,2,9292215; 20220909091700,20220909091700; 9292215,,,,1,2022-09-09_notif.mp4,,,,,30,system.rsexperimentloader.collection_id; nimbus.debug; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id; system.rsexperimentloader.collection_id,,,,,
+353,llama-3.2-3b,sft,7284e62a32dd,"Here's the rewritten bug report:
+
+""I've been testing Firefox on my Mac and noticed an issue with Voice Over. Specifically, when I open any PDF in Firefox, enable the highlight tool, highlight some random text, and then use Voice Over to navigate through the document, it gets stuck reading out the highlighted text until the end of the file. It's like Voice Over ignores all the unhighlighted text and just keeps repeating the highlights over and over again. This makes it really hard to get through ","created attachment 9231975
+voice over stuck on highlight.mp4
+
+**affected versions**
+* 91.0a1 (2021-08-05)
+
+**affected platforms**
+* macos 10.15
+
+**steps to reproduce**
+1. open any pdf in firefox.
+2. enable the highlight tool.
+3. highlight any text.
+4. enable voice over and navigate through the document.
+
+**expected result**
+* voice over should navigate through the document without issues.
+
+**actual result**
+* voice over gets stuck on the highlighted text and keeps reading it until the end of the file.
+
+**regression range**
+* last good revision: 6b4a5d7a5b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9",0,,,,,,1,9231975,9231975,,,,1,highlight.mp4,highlight.mp4,,,,0,,,,,,
+1792,llama-3.2-3b,base,b22071a19668,"Here's the rewritten bug report:
+
+I'm having an issue with Firefox Nightly (build id: 20210820095755) on both Windows 10 x64 and Ubuntu 20.04 x64. To recreate this, you'll need to have a specific profile set up in Firefox - just go to ""about:config"" and look for the ""messaging-system.rsexperimentloader.collection_id"" preference, which should be set to ""nimbus-preview"". Also, make sure you have the ""remote settings devtools"" add-on installed (you can grab it from [here](https://github.com/mozilla","Thank you for the detailed bug report. I'll make sure to test this on the specified platforms and versions. I'll also verify the steps to reproduce and the expected vs. actual results. If you have any additional information or clarification, feel free to add it. I'll keep you updated on the status of this bug. 
+
+### Follow-up:
+After testing, I found that the issue is indeed reproducible on Windows 10 x64 and Ubuntu 20.04 x64, but not on Mac. I also verified that the steps to reproduce and the expected vs. actual results match the original report. The regression range is not provided, as it was not specified in the original report. I'll make sure to update the bug with the new information. 
+
+### Additional Information:
+I've attached a screenshot of the ""open network login page"" infobar that appears when I reproduce the issue. This should help with debugging. 
+
+### Bug Status:
+The bug is currently in the ""in progress"" state. 
+
+### Bug Priority:
+The bug has a medium priority. 
+
+### Bug Se",0,,,,,,3,20210820095755; 20210820095755; 20210820095755,,,,,0,,,,,,0,,,,,,
+3505,llama-3.2-3b,sft,bfbb0ee0b9d2,"Here's a rewritten version of the bug report in a conversational tone:
+
+""I ran into an issue while using Firefox recently, and I thought I'd report it so the developers can take a look. It happens when you launch Firefox and access the 'about:policies' page. If you try to use the tab key to navigate to the section pickers (like active or documentation), it skips right over those sections and jumps straight to the buttons inside them, which isn't what I expected. This seems to happen on both my U","created attachment 9212750
+screenshot from 2021-03-31 11-54-21.png
+
+**affected versions**
+* 88.0b3, 89.0a1(2021-03-28); 
+
+**affected platforms**
+* ubuntu 20, windows 10;
+
+**steps to reproduce**
+1. launch firefox, access about:policies#documentation
+2. press the tab key to navigate across the list;
+
+**expected result**
+* tab navigation reaches all the available links;
+
+**enhancement suggestion**
+* tab navigation should reach all the available links, not just the buttons inside the section pickers;
+* tab navigation should reach all the available links, not just the buttons inside the section pickers;
+* tab navigation should reach all the available links, not just the buttons inside the section pickers;
+* tab navigation should reach all the available links, not just the buttons inside the section pickers;
+* tab navigation should reach all the available links, not just the buttons inside the section pickers;
+* tab navigation should reach all the available links, not just the buttons inside",0,,,,,,1,9212750,9212750,,,,1,11-54-21.png,11-54-21.png,,,,0,,,,,,
+1475,mistral-7b-v0.3,base,eb218672af2b,"Here's a rewritten version of the bug report:
+
+Hey, I wanted to file a bug report because I had some trouble with Thunderbird beta 85 after it updated to 86. When I tried to start the program, it wouldn't work correctly - it just wouldn't launch properly. I tried restarting in safe mode, which helped get things going again, but disabling add-ons didn't make a difference. It wasn't until I checked the error logs that I found the issue with ""togglecompactmode"" was causing problems. To fix it, I ha","user agent: mozilla/5.0 (windows nt 6.1; win64; x64; rv:85.0) gecko/20100101 firefox/85.0
+
+steps to reproduce:
+
+1. Start Thunderbird beta 85
+2. Observe that the program doesn't launch properly
+3. Try starting in safe mode
+4. Disable add-ons
+5. Check error logs
+6. Find issue with ""togglecompactmode""
+7. Change folder view settings
+
+actual results:
+
+Thunderbird beta 85 doesn't launch properly.
+
+expected results:
+
+Thunderbird beta 85 should launch correctly.
+
+regression range:
+
+The issue was observed after updating to Thunderbird beta 86.
+
+notes:
+
+The issue was resolved by changing folder view settings.",0,,,,,,1,20100101,20100101,,,,0,,,,,,0,,,,,,
+2821,qwen2.5-7b,sft,4a0f2092fd89,"Here's the rewritten bug report:
+
+""So, I'm testing this extension that provides its own UI as a tab in Thunderbird, and when I right-click on the content area of that tab, nothing happens - neither the default context menu nor the custom menu provided by the extension shows up. This is weird because it seems like the ""contextmenu"" event isn't even being dispatched, which means I'm missing out on both menus. 
+
+To reproduce this bug, you can follow these steps: start Thunderbird, load an add-on th","created attachment 9222001
+contextmenu.png
+
+user agent: mozilla/5.0 (windows nt 10.0; win64; x64; rv:89.0) gecko/20100101 firefox/89.0
+
+steps to reproduce:
+
+i am testing an extension that provides its own ui as a tab in thunderbird. right clicking on the content area of the tab does not show the default context menu nor the custom menu provided by the extension.
+
+
+actual results:
+
+nothing happens.
+
+
+expected results:
+
+the context menu should be shown.
+
+environment:
+
+windows 10 version 21h1
+thunderbird 89.0b4 (build id 20210512134201)
+thunderbird daily 90.0a1 (build id 20210518125031)
+
+debugger attached to thunderbird 89.0b4:
+
+uncaught error: cannot dispatch contextmenu event. the event target has been deallocated.
+    dispatch resource:///modules/prompter.jsm:1025
+    dispatchresource:///modules/prompter.jsm:1025
+    notifyresource:///modules/prompter.jsm:1042
+    notifyresource:///modules/prompter.jsm:1042
+    notifyresource:///modules/prompter.jsm:1042
+    notifyresource:///modules/p",0,,,,,,4,9222001; 20100101; 20210512134201; 20210518125031,20100101; 9222001,,,,1,contextmenu.png,contextmenu.png,,,,50,prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm; prompter.jsm,prompter.js; prompter.jsm,,,,
+2598,llama-3.2-3b,sft,1be1825eb465,"Here's the rewritten bug report in a natural, conversational tone:
+
+I've got a weird issue to report - when I upgrade Firefox from beta 89 and have it pinned to my taskbar, the ""Make Firefox my default browser"" button shows up instead of the usual ""Choose a theme"" option. This is happening on multiple platforms (Windows 10 x64, macOS 11.4, Ubuntu Linux 20.04) with different versions of Firefox (release 89.0, beta 90.0b5, and nightly 91.0a1). The problem only appears to happen when I've got the `","created attachment 9232382
+blank onboarding page when navigating back after pinning or setting as default.gif
+
+**[affected versions]:**
+- firefox release 89.0, buildid 20210716144314
+- firefox beta 90.0b5, buildid 20210720190304
+- firefox nightly 91.0a1, buildid 20210720094604
+
+**[affected platforms]:**
+- windows 10, v1903 and up
+- macos 11.4 and up
+- ubuntu linux 20.04
+
+**[prerequisites]:**
+- have firefox installed on the machine.
+- have firefox not set as default and not pinned to dock or taskbar.
+- have the `browser.shell.checkdefaultbrowser` pref set to `false`.
+
+**[steps to reproduce]:**
+1. open the firefox application from prerequisites using the profile from the prerequisites.
+2. pin firefox to taskbar or dock.
+3. skip the remaining onboarding using `not now`.
+4. click the browser's `back` button and observe the primary button.
+
+**[expected results]:**
+- the `choose a theme` slide is displayed.
+
+**[actual results]:**
+- the `make firefox my default browser` button is displayed.
+
+",0,,,,,,4,9232382; 20210716144314; 20210720190304; 20210720094604,20210716144314; 20210720094604; 20210720190304; 9232382,,,,1,default.gif,default.gif,,,,1,browser.shell.checkdefaultbrowser,,,,,
+1575,qwen2.5-7b,sft,223177bb96b6,"Here's the rewritten bug report in a natural tone:
+
+So I've got this weird issue with Firefox - basically, when I'm on certain versions (beta 93.0b4 and nightly 94.0a1) on Windows 10, Linux Mint 20, or macOS 11.1, links in the suggestions modal aren't selectable using the tab or arrow keys. Here's how it happens: first, you need to have Firefox installed and opened, with some specific preferences set (like enabling quick suggests and setting certain scenarios). Then, restart the browser, dismiss","created attachment 9236310
+links in the suggestions modal are not selectable using the tab or arrow keys.gif
+
+**[affected versions]:**
+- firefox beta 93.0b4 (build id: 20210803185826)
+- firefox nightly 94.0a1 (build id: 20210804095128)
+
+**[affected platforms]:**
+- windows 10 x64
+- linux mint 20 x64
+- macos 11.1
+
+**[prerequisites]:**
+- have firefox installed and opened.
+- have the following prefs set: 
+- `browser.urlbar.quicksuggest.enabled` to `true`.
+- `browser.urlbar.quicksuggest.seenrestarts` to `0`.
+- `browser.urlbar.quicksuggest.showedonboardingdialog` to `true`.
+- `browser.urlbar.quicksuggest.showedrestartwarning` to `true`.
+- `browser.urlbar.suggest.quicksuggest` to `true`.
+- `browser.urlbar.suggest.quicksuggest.rsexperiment.enabled` to `true`.
+- `browser.urlbar.suggest.quicksuggest.rsexperiment.name` to ""defaultmessage"" / ""starredmessage"" / ""nonsponsoredmessage"" / ""sponsoredmessage"".
+
+**[steps to reproduce]:**
+1. restart the browser until the ""make firefox default"" message is n",0,,,,,,3,9236310; 20210803185826; 20210804095128,20210803185826; 20210804095128; 9236310,,,,1,keys.gif,keys.gif,,,,7,browser.urlbar.quicksuggest.enabled; browser.urlbar.quicksuggest.seenrestarts; browser.urlbar.quicksuggest.showedonboardingdialog; browser.urlbar.quicksuggest.showedrestartwarning; browser.urlbar.suggest.quicksuggest; browser.urlbar.suggest.quicksuggest.rsexperiment.enabled; browser.urlbar.suggest.quicksuggest.rsexperiment.name,browser.urlbar.quicksuggest.enabled; browser.urlbar.quicksuggest.seenrestarts; browser.urlbar.quicksuggest.showedonboardingdialog; browser.urlbar.quicksuggest.showedrestartwarning; browser.urlbar.sugg,,,,
+1510,llama-3.2-3b,dpo,b1be3a6007ad,"Here's the rewritten bug report:
+
+So, I noticed this weird issue that happens when my laptop goes through a suspend-resume cycle - basically, when it sleeps and then wakes up again. What happened was that all the fonts on my screen became super garbled and the icons disappeared (you can see what I mean in the attached screenshot). It's not just limited to existing tabs either - even new ones that open up have these messed-up font issues too! After some digging, I think it might be related to the","**environment:**
+browser / version: firefox nightly 95.0a1 (2021-10-13)
+operating system: windows 10 pro
+
+**prerequisites:**
+etp - strict enabled.
+
+**steps to reproduce:**
+1. navigate https://www.vistaprint.fr/ 
+2. observe the page.
+
+**expected behavior:**
+the page content loads correctly (css, images)
+
+**actual behavior:**
+the page design is broken.
+
+**notes:**
+1. screenshot attached.
+2. the issue is not reproducible with etp - standard.",1,https://www.vistaprint.fr/,https://www.vistaprint.fr/,,,,0,,,,,,0,,,,,,1,www.vistaprint.fr,www.vistaprint.fr,,,,
+3170,qwen2.5-7b,dpo,723e34653413,"Here's the rewritten bug report:
+
+Hey there, I've got an issue to report! So, I'm using Firefox (version 87.0) on my Linux machine and I noticed that when I enable or disable my network connection (or VPN) while a page is loaded from https://mozilla.org, it causes some weird behavior. Here's what happens: if I change the connection status and then immediately reload the page, nothing happens - it just won't refresh. But if I wait for more than 10 seconds before reloading, it works fine! And get ","**affected versions**
+* fx87.0
+
+**tested on**
+* affected platforms: linux
+* unaffected platforms: macos, windows
+
+**steps to reproduce**
+1. launch firefox.
+2. enable/disable network connection/vpn.
+3. load https://mozilla.org
+4. reload the page immediately.
+5. reload the page after waiting more than 10 seconds.
+
+**expected result**
+the page should be refreshed immediately.
+
+**actual result**
+the page is not refreshed immediately but after 10 seconds.
+
+**additional notes**
+* the issue can be reproduced on chrome as well.
+* the issue is not reproducible on windows.
+* the issue is reproducible on linux only because the page is loaded in a new tab.
+* the issue is reproducible only when the page is loaded in a new tab.
+* the issue is reproducible only when the page is loaded in a web extension popup.
+* the issue is reproducible only when the page is loaded in a new tab.
+* the issue is reproducible only when the page is loaded in a web extension popup.
+* the issue is reproducible only when t",1,https://mozilla.org,https://mozilla.org,,,,0,,,,,,0,,,,,,1,mozilla.org,,,,,
+2823,qwen2.5-7b,sft,55613bb5e293,"Here's the rewritten bug report in a conversational tone:
+
+So, I'm experiencing this weird issue with Thunderbird and an extension that provides its UI as a tab. When I right-click on the content area of the tab, nothing happens - neither the default context menu nor the custom menu from the extension shows up. It looks like the ""contextmenu"" event isn't being dispatched either. What's supposed to happen is that the default context menu should pop up when you right-click, but it just doesn't wor","user agent: mozilla/5.0 (windows nt 10.0; win64; x64; rv:88.0) gecko/20100101 firefox/88.0
+
+steps to reproduce:
+
+i have installed an extension that provides its ui as a tab. right clicking the content area of the tab does not show the default context menu nor the custom menu from the extension. it looks like the ""contextmenu"" event is not dispatched.
+
+
+actual results:
+
+no context menu is shown.
+
+
+expected results:
+
+the default context menu should be shown.
+
+environment:
+
+os: windows 10 pro x64
+firefox version: nightly 89.0a1 (2021-04-13) (64-bit)",0,,,,,,1,20100101,20100101,,,,0,,,,,,0,,,,,,
+2537,qwen2.5-7b,dpo,723e34653413,"Here's the rewritten bug report in a conversational tone:
+
+So I was messing around with some CSS code for a video player on cda.pl (you know, just experimenting), and I added this little snippet: `.button-players { filter: invert(.9); }`. I was checking it out on their website - let's say I used the URL https://ebd.cda.pl/620x395/769600222. Anyway, when I hovered my mouse over that video bar, a weird thing happened: part of the element started turning black (check out the screenshot). And if I m","**affected versions**
+firefox nightly 89
+
+**tested on**
+firefox nightly 89
+
+**steps to reproduce**
+1. go to cda.pl video player
+2. add .button-players { filter: invert(.9); } css code to video player
+3. hover over the video bar
+4. move the mouse along the video bar
+
+**expected result**
+the black chunk should not appear
+
+**actual result**
+the black chunk appears and the video bar disappears when moving the mouse along the bar
+
+**notes**
+the issue can be seen in the screenshot
+the issue is reproducible on firefox nightly only",0,,,,,,0,,,,,,0,,,,,,1,cda.pl,,,,,
+1404,qwen2.5-7b,sft,223177bb96b6,"Here's the rewritten bug report in a natural, conversational tone:
+
+""I'm running into an issue in Firefox Beta 109 (build id: 20221212143511) that I think others might experience too. It seems to be affecting multiple platforms - Windows 10 x64, macOS 12.6, and Ubuntu 20.04 x64. To reproduce the problem, you'll need a few specific things set up: install Firefox Beta 109 with the ""fr"" locale, create a new profile, and then enable the ""nimbus.debug"" preference in about:config. Once you've got that","created attachment 9307811
+pdf callout.png
+
+**[affected versions]:**
+- firefox beta 109 (build id: 20221212143511)
+
+**[affected platforms]:**
+- windows 10 x64
+- macos 12.6
+- ubuntu 20.04 x64
+
+**[prerequisites]:**
+- have firefox beta 109 fr installed.
+- have a new profile created.
+- have the “nimbus.debug” pref set to true in the “about:config” page.
+
+**[steps to reproduce]:**
+1. open the browser using the profile from prerequisites.
+2. navigate to the “about:studies” page and enroll in the “pdfjs-feature-callout” study.
+3. navigate to a url ending in “.pdf” (e.g. https://www.africau.edu/images/default/sample.pdf).
+4. observe the pdf callout message.
+
+**[expected result]:**
+- the title of the message does not overlap the “x” button.
+
+**[actual result]:**
+- the title of the message overlaps the “x” button.
+
+**[notes]:**
+- the issue is reproducible on firefox beta 109 de as well.
+- attached is a screenshot of the issue.",1,https://www.africau.edu/images/default/sample.pdf).,,,,,2,9307811; 20221212143511,9307811,,,,1,callout.png,callout.png,,,,4,nimbus.debug; e.g; www.africau.edu; sample.pdf,e.g,,,,
+1575,mistral-7b-v0.3,dpo,921c362b8439,"Here's the rewritten bug report in a natural tone:
+
+So I've got this weird issue with Firefox - basically, when I'm on certain versions (beta 93.0b4 and nightly 94.0a1) on Windows 10, Linux Mint 20, or macOS 11.1, links in the suggestions modal aren't selectable using the tab or arrow keys. Here's how it happens: first, you need to have Firefox installed and opened, with some specific preferences set (like enabling quick suggests and setting certain scenarios). Then, restart the browser, dismiss","**[affected versions]:**
+- beta 93.0b4 (build Id: 93.0b4);
+- nightly 94.0a1 (build Id: 94.0a1);
+
+**[affected platforms]:**
+- windows 10;
+- linux mint 20;
+- macos 11.1;
+
+**[prerequisites]:**
+- have firefox installed and opened.
+- have the following prefs set:
+- `browser.urlbar.quicksuggest.enabled` to `true`.
+- `browser.urlbar.quicksuggest.seenrestarts` to '89'.
+- `browser.urlbar.quicksuggest.showedonboardingdialog` to `false`.
+
+**[steps to reproduce]:**
+1. open the firefox browser with the profile from prerequisites.
+2. restart the browser.
+3. dismiss the ""make firefox default"" message if it is displayed.
+4. try selecting ""learn more"" or ""not now"" using the tab or arrow keys.
+5. observe the behavior.
+
+**[expected result]:**
+- the links are selectable.
+
+**[actual result]:**
+- the links are not selectable.
+6. sometimes when pressing enter, it closes the modal as if the ""allow suggestions"" was selected, even though nothing seemed selected beforehand.
+
+**[additional notes]:**
+- a screen re",1,https://drive.google.com/file/d/1lum8xdmivhrrbwhs3a0hhjxrece1bqea/view?usp=sharing).,https://drive.google.com/file/d/1lum8xdmivhrrbwhs3a0hhjxrece1bqea/view?usp=sharing).,,,,0,,,,,,0,,,,,,4,browser.urlbar.quicksuggest.enabled; browser.urlbar.quicksuggest.seenrestarts; browser.urlbar.quicksuggest.showedonboardingdialog; drive.google.com,browser.urlbar.quicksuggest.enabled; browser.urlbar.quicksuggest.seenrestarts; browser.urlbar.quicksuggest.showedonboardingdialog; drive.google.com,,,,
+657,llama-3.2-3b,base,b22071a19668,"Here's the rewritten bug report:
+
+I'm reporting an issue with the ""fox guide - reader mode - early day users"" experiment, which is supposed to exclude certain users based on the documentation [1]. Specifically, I'm seeing that when I look at the ""excluded experiments"" field in the ""audience"" section of the recipe, there's no Fakespot experiment listed, even though it should be excluded according to the docs. This is happening on Firefox beta 119.0b4 (build id: 20231002091755) across multiple pla","Thank you for the detailed bug report. I've taken note of the issue and will review the affected versions, platforms, steps to reproduce, expected and actual results, regression range, and notes. I'll also review the historical examples to see if there are any similar issues. I'll assign this bug to the relevant team and provide further guidance on how to resolve the issue. 
+
+### Follow-up:
+After reviewing the historical examples, I found a similar issue with the ""fox guide reader mode - existing user"" experiment, which was fixed in commit [2]. I've also checked the affected versions and platforms, and it appears that the issue is not specific to a particular version or platform. The steps to reproduce are straightforward, and the expected and actual results are consistent with the documentation. I've attached a screenshot of the issue (9366881) for further reference. 
+
+### Resolution:
+The issue has been resolved by updating the Fakespot experiment exclusion in the ""fox guide - reader ",0,,,,,,1,9366881,9366881,,,,0,,,,,,0,,,,,,
+123,mistral-7b-v0.3,dpo,bc64485fc8d9,"Here's the rewritten bug report in a natural, conversational tone:
+
+""I'm reporting an issue I found with Firefox's search engines. It only happens in the Extended Support Release (ESR) and Nightly builds, so if you're using one of those versions, you might run into this problem. The affected versions are Firefox 108.0a1 and Firefox 102.4.0esr. To reproduce the bug, I had to make a specific change in my policies.json file - essentially removing Google as a search engine. Then, here's what you nee","created a report for an issue found with firefox search engines. this issue is found in firefox 108.0a1 and firefox 102.4.0esr versions. it is important to note that this issue is found in firefox esr and nightly builds. the steps to reproduce this issue are as follows: make a change in policies.json file, launch firefox, go to about:preferences#search page, click restore default search engines, and restart firefox. the expected result is that google is not displayed anymore. the actual result is that google is still displayed. i do not think this is a regression, it might have always been like this.",0,,,,,,0,,,,,,1,policies.json,,,,,0,,,,,,
+3120,qwen2.5-7b,sft,3db526353bb3,"Here's a rewritten version of the bug report in a casual tone:
+
+""So, I'm using Firefox 90.0a1 on Windows 8.1 with my screen zoomed in to 125%. And I've got an issue with the app menu badge for available updates - it's super tiny and blurry that you can barely make out the arrow icon! To reproduce this bug, here's what I did: I installed a non-latest build of Firefox (just downloaded an older version), then disabled automatic updates in the settings. Yeah, it took some fiddling to get that done b","created attachment 9229432
+appmenu badge for available updates
+
+**affected versions:**
+firefox 90.0a1
+
+**affected platforms:**
+windows 8.1
+
+**unaffected platforms:**
+n/a
+
+**preconditions:**
+- screen zoom in (125%)
+- firefox is installed as latest build
+- firefox is set to auto-update
+
+**steps to reproduce:**
+1. install a non-latest firefox build (downloaded from release page).
+2. disable automatic updates (set to manual) in about:preferences#general > applications.
+3. open a new tab and hit the alt key to open the firefox menu.
+4. click on file and wait for an update to be detected or trigger the background check.
+
+**expected result:**
+the app menu badge for available updates is correctly displayed and visible.
+
+**actual result:**
+the app menu badge for available updates is barely visible and blurry, making the arrow icon hard to distinguish.
+
+**regression range:**
+pushlog:
+https://hg.mozilla.org/integration/autoland/pushloghtml?fromchange=1000000000000000000000000000000000000000&tocha",1,https://hg.mozilla.org/integration/autoland/pushloghtml?fromchange=1000000000000000000000000000000000000000&tochange=1470f1792c3f0dfa62e0d0ab9767544dd0e24f0e,https://hg.mozilla.org/integration/autoland/pushloghtml?fromchange=1000000000000000000000000000000000000000&tochange=1470f1792c3f0dfa62e0d0ab9767544dd0e24f0e,,,,3,9229432; 1000000000000000000000000000000000000000; 1470f1792c3f0dfa62e0d0ab9767544dd0e24f0e,1000000000000000000000000000000000000000; 1470f1792c3f0dfa62e0d0ab9767544dd0e24f0e; 9229432,,,,0,,,,,,1,hg.mozilla.org,hg.mozilla.org,,,,
+2286,mistral-7b-v0.3,sft,2037ae17cb12,"Here's the rewritten bug report in a natural, conversational tone:
+
+""So I've been using the Mozilla VPN app on my Android device (version 8.1.0) without any issues until recently. Now, whenever I try to open it, the app just crashes or closes down and doesn't start at all. Before it actually crashes, I get an error message that says ""your application encountered a fatal error and cannot continue"" - pretty frustrating! The weird thing is that this used to work just fine for me, but now it's like ","created attachment 9295013
+screenshot_20220105_150101.png
+
+### steps to reproduce
+
+1. download and install the mozilla vpn app from the play store.
+2. open the app and log in.
+3. try to open the app again.
+
+### expected behavior
+the app opens without issues.
+
+### actual behavior
+the app crashes or does not start.
+
+### device information
+
+* firefox version: 8.1.0
+* android device model: samsung galaxy a51
+* android os version: 8.1.0
+
+### any additional information?",0,,,,,,1,9295013,9295013,,,,1,screenshot_20220105_150101.png,screenshot_20220105_150101.png,,,,0,,,,,,
+1661,qwen2.5-7b,sft,bfd1fe56177a,"Here's a rewritten version of the bug report in a natural, conversational tone:
+
+""Hey, I'm reporting a weird issue with Normandy Devtools in Firefox 91.0.2 on Windows 10, macOS 11.4.2, and Ubuntu Linux 20.04. To reproduce it, you'll need to have the Normandy Devtools add-on installed and a disabled recipe created. Here's what I did: I opened the browser with that profile, then logged into Normandy Devtools, changed the environment to ""stage"", opened the disabled recipe, and activated the network","created attachment 9237811
+normandy devtools 500 server error.mp4
+
+**[affected versions]:**
+- firefox release 91.0.2 - build id: 20210804185936
+
+**[affected platforms]:**
+- windows 10 x64
+- macos 11.4.2
+- ubuntu linux 20.04 x64
+
+**[prerequisites]:**
+- have the normandy devtools add-on installed.
+- have a disabled recipe created.
+
+**[steps to reproduce]:**
+1. open the browser with the profile from prerequisites.
+2. log into normandy devtools.
+3. change the environment to ""stage"".
+4. open the disabled recipe and click the ""enable"" button.
+5. open the network monitor (ctrl+shift+e).
+6. wait until the recipe is enabled.
+7. observe the behavior.
+
+**[expected result]:**
+- the recipe is successfully enabled and appears in the collection after ~10 minutes.
+
+**[actual result]:**
+- a 500 server error is displayed in the network monitor and the recipe is not enabled.
+
+**[notes]:**
+- the recipe is successfully enabled if the page is refreshed.
+- recipe 1461 was used to test this.
+- last successful",0,,,,,,2,9237811; 20210804185936,20210804185936; 9237811,,,,1,error.mp4,error.mp4,,,,0,,,,,,
+885,llama-3.2-3b,dpo,062da8c7c122,"Here's the rewritten bug report in a natural, conversational tone:
+
+""I'm trying to register a new Fido2 key using Firefox 116.0a1 on my Linux machine (running kernel 6.3.9 and Wayland). I've tested it on two different systems with the same result - it works fine on Firefox 114.0.2, but not on 116.0a1. Here's what happens: I connect my Fido2 key via USB, go to webauthn.io, set up a test username and default settings, click ""register"", enter the key's PIN, and... nothing. The error message says th","**affected versions:**
+firefox 116.0a1
+
+**affected platforms:**
+linux 6.3.9 wayland
+
+**steps to reproduce:**
+1. connect a fido2 key via usb
+2. go to webauthn.io
+3. set up a test username and default settings
+4. click register
+5. enter the key's pin
+6. observe the error message
+
+**expected result:**
+after entering the pin, firefox should ask the user to touch the button on the authentication key.
+
+**actual result:**
+firefox does not ask the user to touch the button on the authentication key.
+
+**regression:**
+this is not a regression. 
+
+**notes:**
+firefox 114.0.2 works fine. 
+this is reproducible on two different systems.",0,,,,,,0,,,,,,0,,,,,,1,webauthn.io,,,,,
+1792,qwen2.5-7b,dpo,8dcd2cba30c5,"Here's the rewritten bug report:
+
+I'm having an issue with Firefox Nightly (build id: 20210820095755) on both Windows 10 x64 and Ubuntu 20.04 x64. To recreate this, you'll need to have a specific profile set up in Firefox - just go to ""about:config"" and look for the ""messaging-system.rsexperimentloader.collection_id"" preference, which should be set to ""nimbus-preview"". Also, make sure you have the ""remote settings devtools"" add-on installed (you can grab it from [here](https://github.com/mozilla","**[affected versions]:**
+firefox nightly 93.0a1 - build id: 20210820095755
+
+**[affected platforms]:**
+- windows 10 x64
+- ubuntu 20.04 x64
+
+**[prerequisites]:**
+- have a firefox profile with the ""messaging-system.rsexperimentloader.collection_id"" pref set to ""nimbus-preview"" in the ""about:config"" page.
+- have the ""remote settings devtools"" add-on installed from [here](https://github.com/mozilla-extensions/remote-settings-devtools/releases).
+- have a captive portal available but you are not connected to it.
+- the firefox browser is set as default.
+
+**[steps to reproduce]:**
+1. open the browser with the profile from prerequisites and click the ""remote settings devtools"" toolbar button.
+2. change the ""environment"" to ""stage"" and restart the browser.
+3. connect to the captive portal (do not perform any login action).
+4. enter the captive portal credentials and log in without interacting with the infobar.
+
+**[expected results]:**
+- the “vpn promo” infobar is displayed.
+
+**[actual results]:**",2,https://github.com/mozilla-extensions/remote-settings-devtools/releases).; https://drive.google.com/file/d/1ravkanxrxsknjercdqo-adbzshhct9ev/view?usp=sharing).,https://drive.google.com/file/d/1ravkanxrxsknjercdqo-adbzshhct9ev/view?usp=sharing).; https://github.com/mozilla-extensions/remote-settings-devtools/releases).,,,,1,20210820095755,,,,,0,,,,,,3,system.rsexperimentloader.collection_id; github.com; drive.google.com,drive.google.com,,,,
+1438,qwen2.5-7b,sft,bfd1fe56177a,"Here's the rewritten bug report:
+
+So, I've got this weird issue going on - whenever I try to visit https://www.game.co.za using Firefox Nightly (109.0a1) on my Windows 10 machine, I get an error and none of the content loads on the page. Here's what I've tried so far: I set ETP (encryption traffic protection) to standard, created a clean profile, and made sure nothing else was messing with the browser. To reproduce this bug, all you gotta do is go to that website and just... look at it. That's i","created attachment 9302456
+game.co.za_error.mp4
+
+**environment:**
+browser / version: firefox nightly 109.0a1 (2022-08-01)
+operating system: windows 10
+
+**prerequisites:**
+etp - standard enabled.
+clean profile.
+
+**steps to reproduce:**
+1. navigate to https://www.game.co.za
+2. observe the page.
+
+**expected behavior:**
+the page loads without errors.
+
+**actual behavior:**
+an error is displayed and the page content does not load.
+
+**notes:**
+1. the issue is reproducible with etp set to standard and strict.
+2. the issue is reproducible in normal and private browsing modes.
+3. the issue is not reproducible in firefox release 107.",1,https://www.game.co.za,,,,,1,9302456,9302456,,,,1,game.co.za_error.mp4,game.co.za_error.mp4,,,,1,www.game.co.za,,,,,
+1138,llama-3.2-3b,dpo,aa39b6d20269,"Here's the rewritten bug report:
+
+So, I'm running Firefox 111 on Windows 10, and I've got some specific settings enabled to reproduce this issue. First, I set up my browser preferences by going into about:config and setting ""extensions.formautofill.supportedcountries"" to include Belgium (it), Spain (es), Poland (pl), Austria (at), and Belgium (be). I also set ""browser.search.region"" to be for the same reason. To make things more interesting, I'm using a VPN set to Belgium, and I've got multiple ","**[affected versions]:**
+- firefox 111
+
+**[affected platforms]:**
+- windows 10
+
+**[prerequisites]:**
+- have firefox 111 browser.
+- have the latest firefox 111 build.
+- have the browser set to be in be region.
+- have the vpn set to be in be region.
+- have multiple credit cards saved in about:preferences#privacy.
+
+**[steps to reproduce]:**
+1. open firefox with a new profile.
+2. set the browser preferences as in the prerequisites.
+3. navigate to https://www.leenbakker.be/nl.
+4. add an item to cart and proceed to checkout.
+5. observe the payment page.
+
+**[expected result]:**
+- the eligible fields are highlighted on form autofill and preview.
+
+**[actual result]:**
+- the eligible fields are not highlighted on form autofill and preview.
+
+**[regression]:**
+- will come back with regression if found.
+
+**[notes]:**
+- attached is the issue.",1,https://www.leenbakker.be/nl.,https://www.leenbakker.be/nl.,,,,0,,,,,,0,,,,,,1,www.leenbakker.be,,,,,
+375,qwen2.5-7b,dpo,69ed557888fe,"Here's the rewritten bug report in a natural, conversational tone:
+
+""So, I was testing out Firefox Nightly 124.0a1 and I found this weird issue. When I'm using the Canadian VPN (yeah, it's specific to Canada) and I install the English-Canada build of Firefox, the autofill/preview/clear feature on credit card forms gets all wonky. What happens is that when you select a saved credit card entry from the dropdown menu on the payment form at https://www.canadiantire.ca (you know, like when you're che","**found on**
+nightly 124.0a1
+
+**affected versions**
+nightly 124.0a1
+
+**tested on**
+affected platforms: macos 11.6, windows 10
+
+**preconditions**
+use ca vpn
+install the en-ca build of firefox
+
+**steps to reproduce**
+1. reach the payment form on https://www.canadiantire.ca
+2. select any saved cc entry from the cc dropdown
+3. clear the form
+
+**expected result**
+the autofill/preview/clear should be applied on the eligible fields.
+
+**actual result**
+the clear is only applied on the selected field.
+
+**notes**
+the issue is not reproducible on chrome.",1,https://www.canadiantire.ca,,,,,0,,,,,,0,,,,,,1,www.canadiantire.ca,,,,,
+2655,mistral-7b-v0.3,dpo,921c362b8439,"Here's the rewritten bug report:
+
+I was messing around with Firefox and noticed this weird issue. It happens on versions 90.0b3 and 91.0a1, and I've seen it on both Windows 8.1/10 and Ubuntu 20.04 - so it's not just a one-off thing! To reproduce the bug, you can follow these steps: open Firefox, go to about:preferences#privacy, click on settings for autoplay, add a website to the list, then press tab a few times until you're focusing on the status part. What I expected to happen was that the foc","**affected versions**
+* 90.0b3
+* 91.0a1
+
+**affected platforms**
+* windows 8.1/10
+* ubuntu 20.04
+
+**steps to reproduce**
+1. open firefox
+2. go to about:preferences#privacy
+3. click on settings for autoplay
+4. add a website to the list
+5. press tab a few times until focusing on the status part
+
+**expected result**
+* focus should be fully visible on the selected website
+
+**actual result**
+* focus is only visible at the bottom of the button
+
+**regression range**
+* this is not a regression since it was introduced when this was first implemented in bug 1692840.
+
+**additional notes**
+* on ubuntu this issue does not happen, even if reopen closed tab is visible and disabled a new tab will open when hitting 'o' key.
+
+**suggested severity**
+* this is of s3 severity in my opinion since it prevents users (in certain conditions) to use the newly added option.
+
+**suggested severity**
+* this is of s3 severity in my opinion since it prevents users (in certain conditions) to use the newly added option.
+",0,,,,,,1,1692840,1692840,,,,0,,,,,,0,,,,,,
+1475,mistral-7b-v0.3,sft,3c7d72272228,"Here's a rewritten version of the bug report:
+
+Hey, I wanted to file a bug report because I had some trouble with Thunderbird beta 85 after it updated to 86. When I tried to start the program, it wouldn't work correctly - it just wouldn't launch properly. I tried restarting in safe mode, which helped get things going again, but disabling add-ons didn't make a difference. It wasn't until I checked the error logs that I found the issue with ""togglecompactmode"" was causing problems. To fix it, I ha","created attachment 9223360
+screenshot 2021-06-22 14.51.01.png
+
+user agent: mozilla/5.0 (windows nt 10.0; win64; x64; rv:89.0) gecko/20100101 firefox/89.0
+
+steps to reproduce:
+
+beta 85 updated to 86.
+
+
+actual results:
+
+could not start.
+started in safe mode, but disabling add-ons did not help.
+
+
+expected results:
+
+started normally.
+
+the error log showed that ""togglecompactmode"" was causing the problem.
+changing folder view settings fixed the problem.",0,,,,,,2,9223360; 20100101,20100101; 9223360,,,,1,14.51.01.png,14.51.01.png,,,,0,,,,,,
+2127,mistral-7b-v0.3,sft,2037ae17cb12,"Here's the rewritten bug report:
+
+Hey, I wanted to let you know about this weird issue I've been experiencing. So, whenever I open this URL (https://luke-chang.github.io/autofill-demo/basic.html) and hover over my saved addresses, I expect to see a preview of each one inside the fields like usual. But what's happening is that instead, all I get is a yellow bar showing up - no actual previews! This has been happening on multiple platforms: Windows 10 and 7 (both x64), macOS 11, and Ubuntu 18.04.
+","created attachment 9226083
+autofill preview issue.gif
+
+**found in**
+* 92.0a1 (20210727094543)
+
+**affected versions**
+* 91.0b8 (20210727214000)
+* 90.0.2 (20210721174149)
+
+**tested platforms**
+* windows 10 x64
+* windows 7 x64
+* macos 11
+* ubuntu 18.04
+
+**preconditions:**
+* browser.search.region set to  us
+* have a locale us build
+* have at least one address saved in about:preferences#privacy
+
+**steps to reproduce**
+1. open https://luke-chang.github.io/autofill-demo/basic.html
+2. click in any field and observe the autofill preview behavior
+3. click in any field and observe the autofill behavior
+
+**expected result**
+* the autofill preview and autofill should be displayed inside the fields.
+
+**actual result**
+* the autofill preview and autofill are not displayed inside the fields.
+
+**regression**
+* this is a regression. will come back with the build that is not affected asap.
+
+**additional notes**
+* attached a screen recording of the issue on an older version and also on 91.0b8.",1,https://luke-chang.github.io/autofill-demo/basic.html,https://luke-chang.github.io/autofill-demo/basic.html,,,,4,9226083; 20210727094543; 20210727214000; 20210721174149,9226083,,,,1,issue.gif,issue.gif,,,,3,browser.search.region; chang.github.io; basic.html,browser.search.region,,,,
+551,llama-3.2-3b,dpo,9f389d7eceda,"Here's the rewritten bug report in a conversational tone:
+
+""I'm using Firefox 119.0 on my Mac (running macOS 10.15). When I open a new private window and visit this URL: https://freckle-like-move.glitch.me/, everything seems normal until I click on the settings icon and see that 'cross-site cookies' are enabled for the framed site. Then, I noticed something weird - when I click the 'refresh cookies' button (which is actually an iframe), no cookies load at first (makes sense since there aren't an","**affected versions**
+firefox 119.0
+
+**affected platforms**
+macos 10.15
+
+**steps to reproduce**
+1. open firefox private window
+2. visit https://freckle-like-move.glitch.me/
+3. click on settings icon
+4. observe cross site cookies are enabled for the framed site
+5. click on refresh cookies button (iframe)
+6. open a new tab by clicking on the link mentioned above
+7. submit a value to set a cookie
+8. open the tab from step 2
+9. click on refresh cookies button (iframe)
+
+**expected result**
+third party cookies should be accessible without page reload
+
+**actual result**
+cookies are not loaded at first
+cookies are not loaded at first
+cookies are not loaded at first
+cookies are not loaded at first
+cookies are not loaded at first
+cookies are not loaded at first
+cookies are not loaded at first
+cookies are not loaded at first
+cookies are not loaded at first
+cookies are not loaded at first
+cookies are not loaded at first
+cookies are not loaded at first
+cookies are not loaded at first
+cookies are no",1,https://freckle-like-move.glitch.me/,https://freckle-like-move.glitch.me/,,,,0,,,,,,0,,,,,,1,move.glitch.me,,,,,
+379,llama-3.2-3b,base,b22071a19668,"Here's the rewritten bug report:
+
+I ran into this weird issue with Firefox where it just crashes whenever I do some specific steps. First, I opened up a new profile and went to about:config, then searched for this preference called ""javascript.options.parallel_parsing"" and set it to false. After that, I closed and reopened the browser, waited a few seconds, and then shut it down again. What happened next was pretty frustrating - after waiting a bit, the browser just froze and crashed! I expected","Thank you for providing a detailed description of the issue. I've summarized the key points below:
+
+**affected versions**
+- Nightly 124.0a1, Beta 123.0b9, Release 122.0.1
+
+**affected platforms**
+- Windows, Mac, Linux (Mint 20.1)
+
+**steps to reproduce**
+1. Open a new profile in Firefox.
+2. Navigate to about:config.
+3. Search for ""javascript.options.parallel_parsing"" and set it to false.
+4. Close and reopen the browser.
+5. Wait a few seconds.
+6. Shut down the browser.
+
+**expected result**
+- The browser should close normally.
+
+**actual result**
+- The browser freezes and crashes.
+
+**regression range**
+- Not provided
+
+**notes**
+- The issue is not reproducible using the MozRegression tools.
+
+I'll review the attached screen recording and investigate further. Thank you for your patience and cooperation.",0,,,,,,0,,,,,,0,,,,,,1,javascript.options.parallel_parsing,,,,,
+3940,qwen2.5-7b,dpo,8dcd2cba30c5,"Here's the rewritten bug report:
+
+So, I've been testing out Firefox and I noticed a weird thing happening. It seems that when you're using the ""de"" locale (that's German, for anyone who doesn't speak the language), and you have the ""nimbus.debug"" preference set to true, the title of the microsurvey card shows up on the wrong line in the bottom-right corner of the screen. Normally, I'd expect it to be lined up with the Firefox logo, but instead it's stuck on the next row down. This only happens w","**[affected versions]:**
+- firefox nightly 126.0a1, build id: 20240403091700
+- firefox beta 125.0b7, build id: 20240401091600
+- firefox release 124.0.2, build id: 20240401114208
+
+**[affected platforms]:**
+- macos 14.3
+
+**[prerequisites]:**
+- have the firefox de locale installed.
+- have the “nimbus.debug” pref set to true.
+- have a firefox profile younger than 28 days.
+
+**[steps to reproduce]:**
+1. navigate to the profile folder and paste the “user.js” from the prerequisites.
+2. open firefox using the profile from the prerequisites.
+3. open a new tab.
+4. observe the “csat microsurvey” card in the bottom-right part of the page.
+
+**[expected results]:**
+- the title of the “csat microsurvey” card is correctly displayed on the same line as the firefox logo.
+
+**[actual results]:**
+- the title of the “csat microsurvey” card is incorrectly displayed on the next row.
+
+**[notes]:**
+- this issue is not reproducible on other platforms (ubuntu 22.04, windows 10, windows 11).
+- this issue is also re",0,,,,,,3,20240403091700; 20240401091600; 20240401114208,20240401091600; 20240401114208; 20240403091700,,,,0,,,,,,2,nimbus.debug; user.js,user.js,,,,
+48,mistral-7b-v0.3,sft,3c7d72272228,"Here's a rewritten version of the bug report in a conversational tone:
+
+I'm still having issues with my Firefox account - it's been a real frustration! So, I got a new computer and tried to log back into my Firefox account to recover some old bookmarks (I'd synced them across devices). But when I went to login, Firefox told me that a verification email was sent to my email address. The thing is, our website at crachrecords.org (where the email address is registered) had gone down because we didn","created attachment 9234163
+screenshot 2021-09-01 at 15.00.00.png
+
+user agent: mozilla/5.0 (windows nt 10.0; win64; x64; rv:93.0) gecko/20100101 firefox/93.0
+
+steps to reproduce:
+
+i got a new computer and wanted to recover my bookmarks (synced across devices)
+
+
+actual results:
+
+i got the message that a verification email was sent to my email address.
+
+
+expected results:
+
+the email was sent to my email address but was sent back because our website (crachrecords.org) was down (we didn't pay our webspace provider).
+
+i paid yesterday and everything is online again.
+
+i tried to log in again but it still says that my account is blocked and to check the support pages.
+
+the support pages say to try again in 24 hours.
+
+i tried again today but it still says that my account is blocked and to check the support pages.
+
+it's not a minor problem for me. i put in countless hours collecting the bookmarks and need them for projects i'm working on.",0,,,,,,2,9234163; 20100101,20100101; 9234163,,,,1,15.00.00.png,15.00.00.png,,,,1,crachrecords.org,,,,,
+908,llama-3.2-3b,sft,74a9941d94f4,"Here's the rewritten bug report in a natural, conversational tone:
+
+I'm reporting a weird issue I found with Firefox Nightly 116.0a1 on my Android devices. To reproduce it, you need to follow these steps: first, install and launch the latest Nightly version from June 8th, and then enable this toggle called ""enable tabs tray to compose rewrite"" in the secret settings menu. Once that's done, open any website that plays media files (like videos or audio) in the background, play one of those files, ","created attachment 9255307
+screenshot_2.png
+
+**[affected versions]:**
+- firefox nightly 116.0a1 (2023-06-08)
+
+**[affected platforms]:**
+- android 13 - samsung galaxy a53 5g
+- android 11 - xiaomi redmi note 8t
+
+**[prerequisites]:**
+- install and launch the latest firefox nightly 116.0a1 from 06/08.
+- enable the ""enable tabs tray to compose rewrite"" toggle from the secret settings.
+
+**[steps to reproduce]:**
+1. open any website that plays media files in the background.
+2. play a media file.
+3. open the tabs tray.
+4. tap the ""pause"" button from the tab playing the media (the one with the circle icon).
+5. observe the ripple effect.
+
+**[expected result]:**
+- the ripple effect is round.
+
+**[actual result]:**
+- the ripple effect is square.
+
+**[notes]:**
+- the issue is not reproducible if the ""enable tabs tray to compose rewrite"" toggle is disabled.
+- on the samsung galaxy a53 5g (android 13), the ripple effect is round.
+- on the xiaomi redmi note 8t (android 11), there is no ripple effect.",0,,,,,,1,9255307,9255307,,,,1,screenshot_2.png,screenshot_2.png,,,,0,,,,,,
+3700,llama-3.2-3b,sft,7284e62a32dd,"Here's the rewritten bug report in a natural, conversational tone:
+
+""So I noticed that this crazy thing happens when I'm using Firefox Beta 100.0 on Windows 10, macOS 11.6.2, or Linux Mint 20.2 - after I dismiss an experiment message on the ""asrouter"" page, it just refuses to go away! Like, I'll open a new tab and expect it to be gone, but nope, it's still there, taunting me with its presence. And weirdly enough, this only happens if my locale build is set to something other than English (I'm us","created attachment 9272212
+focus message stuck.gif
+
+**[affected versions]:**
+- firefox beta 100.0 - build id: 20220412185900
+
+**[affected platforms]:**
+- windows 10 x64
+- macos 11.6.2
+- linux mint 20.2
+
+**[prerequisites]:**
+- have a firefox en-* locale build.
+- have the ""nimbus.debug"" pref set to true in about:config.
+
+**[steps to reproduce]:**
+1. open the firefox browser with the profile from the prerequisites.
+2. navigate to the ""about:studies"" page for the focus pbm experiment.
+3. dismiss the focus promo message by clicking the x button.
+4. open a new tab.
+
+**[expected result]:**
+- the focus message is dismissed and the page is displayed as expected.
+
+**[actual result]:**
+- the focus message is not dismissed and is displayed on the page.
+
+**[notes]:**
+- this issue is not reproducible with the focus message displayed on the ""about:welcome"" page.
+- this issue is reproducible only if the locale build is not en-*.
+- attached is a screen recording of the issue.",0,,,,,,2,9272212; 20220412185900,20220412185900; 9272212,,,,1,stuck.gif,stuck.gif,,,,1,nimbus.debug,,,,,
+2869,mistral-7b-v0.3,sft,5788e84702e1,"Here's the rewritten bug report:
+
+So, I'm running into an issue where Firefox Nightly (build id 20210513214800) isn't sending the ""expprefchanged"" event when I change preference experiment values on the about:config page. This happens on multiple platforms - Windows 10 x64, Linux Mint 20, and macOS 11.2.3.
+
+To reproduce this bug, you need to have an older version of Firefox Nightly installed (like 89), set up a Normandy recipe for a single preference experiment, and enroll your Firefox profile i","created attachment 9221360
+expprefchanged.gif
+
+**[affected versions]:**
+- firefox nightly 90.0a1 (build id: 20210513214800)
+- firefox beta 89.0b6 (build id: 20210513185935)
+
+**[affected platforms]:**
+- windows 10 x64
+- linux mint 20
+- macos 11.2.3
+
+**[prerequisites]:**
+- have an older version of firefox nightly (e.g. 89) installed.
+- have a normandy recipe for a single preference experiment.
+- have a firefox profile enrolled in the experiment.
+
+**[steps to reproduce]:**
+1. open the updated firefox profile and navigate to the about:config page.
+2. search for the experiment preferences and change each one to a different value.
+3. navigate to about:telemetry#events-tab and search for the ""expprefchanged"" event.
+
+**[expected result]:**
+- an ""expprefchanged"" event is sent every time a preference is changed.
+
+**[actual result]:**
+- an ""expprefchanged"" event is not sent when working with default branch-type preferences.
+
+**[notes]:**
+- the stage recipe used was 1388.
+- attached is a screen re",0,,,,,,3,9221360; 20210513214800; 20210513185935,20210513185935; 9221360,,,,2,expprefchanged.gif; shield-preference-experiments.json,expprefchanged.gif,,,,2,e.g; experiments.json,e.g,,,,
+560,llama-3.2-3b,sft,7284e62a32dd,"Here's a rewritten version of the bug report in a casual tone:
+
+So, I noticed this weird issue while digging around in the secret debug menu on my Android device. To reproduce it, you need to follow these steps: first, flip the switch to turn on the secret debug mode; then, navigate over to the settings and find the section with all the juicy debug info - yeah, that one! Finally, toggle dark mode on. Now, here's what I expected to happen: when you do this, the text in the settings should still b","created attachment 9231975
+settings.png
+
+### steps to reproduce
+
+1. flip the secret debug switch to on.
+2. navigate to settings and find the section with all the debug info.
+3. toggle dark mode on.
+
+### expected behavior
+the text in the settings section is readable.
+
+### actual behavior
+the text in the settings section is not readable, it turns dark and does not follow the theme.
+
+### device information
+
+* firefox version: 92.0a1 (2021-08-04)
+* android device model: samsung galaxy s8
+* android os version: 9
+
+### any additional information?
+the text in the settings section is not readable because it turns dark and does not follow the theme.",0,,,,,,1,9231975,9231975,,,,1,settings.png,settings.png,,,,0,,,,,,
+2656,mistral-7b-v0.3,sft,3c7d72272228,"Here's the rewritten bug report:
+
+I'm seeing this weird issue where the focus isn't quite right when I'm on the autoplay settings page in Firefox. Specifically, if I add a website to the list and then press Tab multiple times to focus on the ""Status"" button, the focus only becomes visible on the lower part of the button - it's like it's stuck or something! This happens on both Windows 8.1 & 10, as well as Ubuntu 20.04. I've tested versions 90.0b3 and 91.0a1, and the issue is present in both. You","created attachment 9221363
+focus.gif
+
+**affected versions**
+* 90.0b3
+* 91.0a1
+
+**affected platforms**
+* windows 8.1
+* windows 10
+* ubuntu 20.04
+
+**unaffected platforms**
+* macos
+
+**steps to reproduce**
+1. go to about:addons#autoplay
+2. add a website to the list
+3. press tab multiple times to focus on the ""status"" button
+
+**expected result**
+* focus is visible on the button
+
+**actual result**
+* focus is visible on the lower part of the button
+
+**regression range**
+* this is not a regression since it was introduced when this was first implemented in bug 1692840.
+
+**additional notes**
+* please see the attached file for a visual of the issue.
+* this issue is not reproducible on macos.
+* not sure if this is reproducible on other pages as well.",0,,,,,,2,9221363; 1692840,1692840; 9221363,,,,1,focus.gif,,,,,0,,,,,,
+1324,qwen2.5-7b,dpo,fe84e2a6c571,"Here's the rewritten bug report:
+
+""I've been testing Firefox versions 111.0a1, 110.0b5, and 109.0 on Windows 10 and macOS 11, and I found a weird issue that affects payment forms on certain websites. To reproduce it, you need to have at least one credit card saved in your browser's autofill settings and set the browser search region to GB. Then, follow these steps: either click on an expiration date field and choose any saved CC entry (case 1), or click on a credit card number field, choose a sa","**found in**
+* firefox nightly 111.0a1
+
+**affected versions**
+* firefox nightly 111.0a1
+* firefox rc 110.0b5
+* firefox release 109.0
+
+**tested platforms**
+* affected platforms: windows 10, macos 11
+
+**preconditions**
+* have at least one cc already saved
+* browser.search.region = gb
+
+**steps to reproduce**
+case 1:
+1. reach the payment form on https://www.newbalance.com/
+2. click on an expiration date field and choose any saved cc entry
+
+case 2:
+1. reach the payment form on https://www.newbalance.com/
+2. click on a credit card number field
+3. click on a saved entry
+4. right click on any of the fields and choose ""clear autofill form""
+
+**expected result**
+case 1:
+form autofill should be applied on eligible fields.
+
+case 2:
+form clear should be applied on eligible fields.
+
+**actual result**
+case 1:
+form autofill is only applied on some of the fields.
+
+case 2:
+form clear is only applied on the selected field.
+
+**regression range**
+* not a recent regression.
+
+**additional notes**
+* not reprod",2,https://www.newbalance.com/; https://www.newbalance.com/,https://www.newbalance.com/,,,,0,,,,,,0,,,,,,4,browser.search.region; www.newbalance.com; www.newbalance.com; newbalance.it,browser.search.region; www.newbalance.com,,,,
+1279,mistral-7b-v0.3,sft,3c7d72272228,"So I've got this weird bug going on where the ""back"" and ""forward"" buttons on my toolbar aren't showing up, which is super frustrating because I use those all the time to navigate between different parts of an app. Here's what's happening: when I try to create a new attachment or view an existing one, these buttons just vanish from the screen - it's like they're not even part of the standard toolset anymore! And get this, the new toolbar doesn't give me any options to configure them either, whic","created attachment 9355742
+firefox 120
+
+user agent: mozilla/5.0 (windows nt 10.0; win64; x64; rv:109.0) gecko/20100101 firefox/119.0
+
+steps to reproduce:
+
+* right-click on the toolbar -> select ""customize toolbar..."".
+
+
+
+actual results:
+
+* buttons in the footer are not styled properly.
+
+
+
+expected results:
+
+* buttons should be styled.
+
+regressed by: bug 1852778",0,,,,,,3,9355742; 20100101; 1852778,1852778; 20100101; 9355742,,,,0,,,,,,0,,,,,,
+3596,qwen2.5-7b,sft,4a0f2092fd89,"Here's a rewritten version of the bug report in a natural, conversational tone:
+
+""I've noticed an issue with Firefox that I wanted to file a bug report about. It started happening after updating to version 88.0a1 (on March 28th). The problem affects both Windows 10 and Ubuntu 20. 
+
+To reproduce the issue, follow these steps: open up Firefox, head to the ""about:preferences#general"" page, scroll down to the ""Applications"" section, click inside the search field for file types or applications, and t","created attachment 9233111
+focus ring.png
+
+**affected versions:**
+- firefox 88.0a1 (build id: 20210328094800)
+
+**affected platforms:**
+- windows 10
+- ubuntu 20
+
+**pre-requisites:**
+- have firefox 88.0a1 (build id: 20210328094800) installed.
+
+**steps to reproduce:**
+1. open the firefox browser.
+2. navigate to “about:preferences#general” page.
+3. scroll down to the “applications” section.
+4. click inside the search field for file types or applications.
+5. press the tab key twice.
+
+**expected result:**
+the focus ring is properly displayed.
+
+**actual result:**
+the focus ring is improperly displayed.
+
+**notes:**
+- the issue is reproducible regardless of proton pref status.
+- attached is a screenshot of the issue.
+- will come back with regression range asap.",0,,,,,,3,9233111; 20210328094800; 20210328094800,20210328094800; 9233111,,,,1,ring.png,ring.png,,,,0,,,,,,
+2440,mistral-7b-v0.3,sft,041f1eae95e1,"Here's the rewritten bug report:
+
+""Hey, I'm reporting a weird issue with Firefox on Ubuntu 20.04.2 LTS (yeah, it only happens on that specific combo). If you're using Nightly 91.0a1, you might notice that when you customize your toolbar and select the Dark theme, some buttons at the bottom of the page don't show up right away. Instead, they only appear if you hover over them. That's definitely not what I expected! The weird thing is, it doesn't happen on Windows 10x64 or macOS 10.15 - so it seem","created attachment 9221213
+screen cast issue.gif
+
+**affected versions**
+* nightly 91.0a1
+
+**affected platforms**
+* ubuntu 20.04.2 lts
+
+**unaffected platforms**
+* windows 10x64
+* macos 10.15
+
+**steps to reproduce**
+1. launch firefox.
+2. go to hamburguer menu > more tools > customize toolbar.
+3. click on themes button at the bottom.
+4. select dark theme.
+
+**expected result**
+* all buttons are displayed.
+
+**actual result**
+* buttons are not displayed.
+
+**regression range**
+* pushlog: https://hg.mozilla.org/integration/autoland/pushloghtml?fromchange=5555555&tochange=5555556
+* potential regressor: bug 1717077 - [proton] buttons should be drawn with a border. r=miko
+
+**additional notes**
+* attached a screen cast of the issue.",1,https://hg.mozilla.org/integration/autoland/pushloghtml?fromchange=5555555&tochange=5555556,https://hg.mozilla.org/integration/autoland/pushloghtml?fromchange=5555555&tochange=5555556,,,,4,9221213; 5555555; 5555556; 1717077,5555555; 5555556; 9221213,,,,1,issue.gif,issue.gif,,,,1,hg.mozilla.org,hg.mozilla.org,,,,
+551,qwen2.5-7b,sft,bfd1fe56177a,"Here's the rewritten bug report in a conversational tone:
+
+""I'm using Firefox 119.0 on my Mac (running macOS 10.15). When I open a new private window and visit this URL: https://freckle-like-move.glitch.me/, everything seems normal until I click on the settings icon and see that 'cross-site cookies' are enabled for the framed site. Then, I noticed something weird - when I click the 'refresh cookies' button (which is actually an iframe), no cookies load at first (makes sense since there aren't an","created attachment 9342678
+screen recording 2023-07-11 at 16.11.11.mov
+
+user agent: mozilla/5.0 (macintosh; intel mac os x 10_15_7) applewebkit/537.36 (khtml, like gecko) chrome/119.0.0.0 safari/537.36
+
+steps to reproduce:
+
+1. open a new private window.
+2. visit https://freckle-like-move.glitch.me/
+3. click on the settings icon and observe that cross-site cookies are enabled for the framed site.
+4. click the refresh cookies button (iframe).
+5. open a new tab by clicking on the link mentioned above.
+6. submit a value to set a cookie.
+7. go back to the original tab and click the refresh cookies button again.
+8. refresh the page.
+
+
+actual results:
+
+the cookies do not load when clicking the refresh cookies button (iframe) after setting a cookie in a new tab.
+the cookies do load when refreshing the page.
+
+
+expected results:
+
+third-party cookies should be accessible without reloading the page if storage access api is allowed.",1,https://freckle-like-move.glitch.me/,https://freckle-like-move.glitch.me/,,,,1,9342678,9342678,,,,1,16.11.11.mov,16.11.11.mov,,,,1,move.glitch.me,,,,,
+1475,llama-3.2-3b,sft,3e3fd4737c11,"Here's a rewritten version of the bug report:
+
+Hey, I wanted to file a bug report because I had some trouble with Thunderbird beta 85 after it updated to 86. When I tried to start the program, it wouldn't work correctly - it just wouldn't launch properly. I tried restarting in safe mode, which helped get things going again, but disabling add-ons didn't make a difference. It wasn't until I checked the error logs that I found the issue with ""togglecompactmode"" was causing problems. To fix it, I ha","user agent: mozilla/5.0 (windows nt 10.0; win64; x64; rv:88.0) gecko/20100101 firefox/88.0
+
+steps to reproduce:
+
+i had thunderbird 85.0.2 after it auto updated to 86.0.1. when i tried to start the program it wouldn't work. i tried restarting in safe mode, which helped get it going again. disabling add-ons didn't help. i checked the error logs and found that ""togglecompactmode"" was the problem. i had to change my folder view settings to fix it. once i did that, thunderbird started working again.
+
+
+actual results:
+
+it wouldn't start
+
+
+expected results:
+
+it should have started",0,,,,,,1,20100101,20100101,,,,0,,,,,,0,,,,,,
+551,qwen2.5-7b,base,7528caba9fd9,"Here's the rewritten bug report in a conversational tone:
+
+""I'm using Firefox 119.0 on my Mac (running macOS 10.15). When I open a new private window and visit this URL: https://freckle-like-move.glitch.me/, everything seems normal until I click on the settings icon and see that 'cross-site cookies' are enabled for the framed site. Then, I noticed something weird - when I click the 'refresh cookies' button (which is actually an iframe), no cookies load at first (makes sense since there aren't an","**affected versions**
+- Firefox 119.0
+
+**affected platforms**
+- macOS 10.15
+
+**steps to reproduce**
+1. Open a new private window in Firefox 119.0 on macOS 10.15.
+2. Visit the URL: <https://freckle-like-move.glitch.me/>.
+3. Click on the settings icon and observe that 'cross-site cookies' are enabled for the framed site.
+4. Click the 'refresh cookies' button (an iframe) and notice that no cookies load initially.
+5. Open a new tab and submit a value to set a cookie.
+6. Go back to the original tab and click the 'refresh cookies' button again; still no cookies load.
+7. Refresh the page and observe that the cookies suddenly appear.
+
+**expected result**
+- After setting a cookie via the new tab, clicking the 'refresh cookies' button in the original tab should immediately display the newly created cookie without needing to refresh the page.
+
+**actual result**
+- The 'refresh cookies' button does not show the newly created cookie until the page is refreshed.
+
+**regression range**
+- not provided
+
+",4,https://freckle-like-move.glitch.me/>.; https://freckle-like-move.glitch.me/>.; https://freckle-like-move.glitch.me/>.; https://freckle-like-move.glitch.me/>.,https://freckle-like-move.glitch.me/>.,,,,0,,,,,,0,,,,,,4,move.glitch.me; move.glitch.me; move.glitch.me; move.glitch.me,,,,,
+1095,mistral-7b-v0.3,dpo,bc64485fc8d9,"Here's the rewritten bug report in a natural, conversational tone:
+
+I'm having trouble compiling Firefox from the latest Git sources on my ARMv7a platform using GCC 10. I've followed the usual steps to reproduce the issue: downloaded the latest source code and compiled it for ARMv7a.
+
+When I ran the build process, I got some errors that seemed pretty unusual. Specifically, I got a panic error message saying that ""clangdiagnostic('error: unknown argument: -mno-thumb-interwork\n')"", which is refer","created attachment 2234547
+**affected versions**
+*nightly 100.0a1*
+
+**affected platforms**
+*armv7a*
+
+**steps to reproduce**
+1. download the latest source code and compile it for armv7a.
+2. run the build process and observe the build log.
+
+**expected result**
+*the compile process runs smoothly and a firefox nightly build is obtained.*
+
+**actual result**
+*panic error message is displayed and the build process is interrupted.*
+
+**regression range**
+*not a regression.*
+
+**notes**
+*the error message refers to clangdiagnostic('error: unknown argument: -mno-thumb-interwork\n') and it seems that the build system assumes that the build is a clang build, even though it is a gcc 10 build.*
+*the full build log is attached.*",0,,,,,,1,2234547,2234547,,,,0,,,,,,0,,,,,,
+1555,qwen2.5-7b,dpo,005c3dc9414f,"Here's the rewritten bug report:
+
+So, I've been experiencing this weird issue with Firefox, specifically in the beta and nightly versions (93.0b5 and 94.0a1). It seems to happen on multiple platforms - Windows 10, Linux Mint 20, and MacOS 11.1. To reproduce it, you need to have Firefox En-US version 93 installed and opened, and you should be in the US or use a VPN (or set ""browser.search.region"" to ""us""). Here's what I do:
+
+First, focus the Awesome Bar and type a keyword like ""hublot"". Then, cli","**[affected versions]:**
+- firefox beta 93.0b5 (build id: 20210816091700)
+- firefox nightly 94.0a1 (build id: 20210816095800)
+
+**[affected platforms]:**
+- windows 10
+- linux mint 20
+- macos 11.1
+
+**[prerequisites]:**
+- have firefox en-us version 93 installed and opened.
+- be in the us region or use a vpn service to connect to the us region.
+- have the “browser.search.region” pref set to “us”.
+
+**[steps to reproduce]:**
+1. focus the awesome bar and type a keyword (e.g. hublot).
+2. click the sponsored firefox suggest result.
+3. open a new tab and repeat step 1-2.
+4. open a new tab and focus the awesome bar.
+5. type the keyword from step 1 and observe the suggestions displayed.
+
+**[expected result]:**
+- the sponsored suggestion is displayed when using a keyword.
+
+**[actual result]:**
+- the sponsored suggestion is displayed twice and then it disappears, leaving only history results.
+
+**[notes]:**
+- the issue is not reproducible if the user is not in the us region.
+- attached is a screen re",1,https://drive.google.com/file/d/1vzjyfzgkxhjwqzv5d9n5l5mzrjyjyj0_/view?usp=sharing),https://drive.google.com/file/d/1vzjyfzgkxhjwqzv5d9n5l5mzrjyjyj0_/view?usp=sharing),,,,2,20210816091700; 20210816095800,20210816091700; 20210816095800,,,,0,,,,,,3,browser.search.region; e.g; drive.google.com,drive.google.com; e.g,,,,
+1138,llama-3.2-3b,sft,9f130b369b56,"Here's the rewritten bug report:
+
+So, I'm running Firefox 111 on Windows 10, and I've got some specific settings enabled to reproduce this issue. First, I set up my browser preferences by going into about:config and setting ""extensions.formautofill.supportedcountries"" to include Belgium (it), Spain (es), Poland (pl), Austria (at), and Belgium (be). I also set ""browser.search.region"" to be for the same reason. To make things more interesting, I'm using a VPN set to Belgium, and I've got multiple ","created attachment 9323254
+gamma.be_preview, autofill and clear.mp4
+
+**found in**
+* firefox 111
+
+**affected versions**
+* firefox 111
+
+**tested platforms**
+* affected platforms: windows 10
+
+**preconditions**
+* set pref extensions.formautofill.supportedcountries to it,es,pl,at,be in about:config
+* set pref browser.search.region to be in about:config
+* use be vpn
+* have several credit cards saved in about:preferences#privacy
+
+**steps to reproduce**
+1. go to https://www.gamma.be/nl
+2. add an item to cart and proceed to checkout
+3. reach the payment page
+4. click in either the card number or cardholder field
+
+**expected result**
+* form autofill/preview/clear are applied in all the eligible fields.
+
+**actual result**
+* cc number and expiry date are previewed, autofilled and cleared individually, but not highlighted in the specific yellow color.
+however clicking in the cc number field will autofill all the eligible fields, but clear autofill form clears only the cardholder name field.
+
+**regr",2,https://www.gamma.be/nl; https://drive.google.com/file/d/11ip6c4glvh1li-lueg53yvl-uvswmtax/view?usp=sharing,https://drive.google.com/file/d/11ip6c4glvh1li-lueg53yvl-uvswmtax/view?usp=sharing; https://www.gamma.be/nl,,,,1,9323254,9323254,,,,1,clear.mp4,clear.mp4,,,,5,gamma.be_preview; extensions.formautofill.supportedcountries; browser.search.region; www.gamma.be; drive.google.com,drive.google.com; gamma.be_preview; www.gamma.be,,,,
+1903,mistral-7b-v0.3,sft,5788e84702e1,"Here's the rewritten bug report:
+
+So, I'm trying to set up a new CardDAV address book in TB 91, but it's not working as expected. First, I went to Address Book > File > New > CardDAV Address Book, and followed the prompts to enter the address book name and URL (""https://domain.com/carddav/""). When prompted for my username and password, I entered them.
+
+The issue is that TB failed to recognize the address books. I got some error messages in the console that said something about internal dialogs n","created attachment 9244734
+tb_carddav.png
+
+user agent: mozilla/5.0 (windows nt 10.0; win64; x64; rv:93.0) gecko/20100101 firefox/93.0
+
+steps to reproduce:
+
+1. address book > file > new > carddav address book
+2. enter address book name and url (https://domain.com/carddav/)
+3. enter username and password
+
+
+
+actual results:
+
+the address books are not detected.
+
+
+expected results:
+
+the address books should be detected.
+
+we are using sabredav 4.1.5 for carddav (part of the groupoffice suite). the address books are located at https://domain.com/carddav/addressbooks/my.email@domain.com/347/ and https://domain.com/carddav/addressbooks/my.email@domain.com/376/.
+
+i tried entering different urls, but it only worked when i entered the direct url of one of the address books (https://domain.com/carddav/addressbooks/my.email@domain.com/347/).
+
+it also failed to sync the contacts.
+
+i also tried to set up a read-only address book, but it failed to sync the contacts.",4,https://domain.com/carddav/); https://domain.com/carddav/addressbooks/my.email@domain.com/347/; https://domain.com/carddav/addressbooks/my.email@domain.com/376/.; https://domain.com/carddav/addressbooks/my.email@domain.com/347/).,https://domain.com/carddav/); https://domain.com/carddav/addressbooks/my.email@domain.com/347/; https://domain.com/carddav/addressbooks/my.email@domain.com/347/).; https://domain.com/carddav/addressbo,,,,2,9244734; 20100101,20100101; 9244734,,,,1,tb_carddav.png,tb_carddav.png,,,,10,domain.com; domain.com; my.email; domain.com; domain.com; my.email; domain.com; domain.com; my.email; domain.com,,,,,
+3589,llama-3.2-3b,sft,7284e62a32dd,"Here's the rewritten bug report:
+
+Hey, I wanted to report an issue I'm seeing with Firefox. So, I've got the latest beta German build installed, and I've also got a CSV file that contains multiple logins. When I open the browser, navigate to the ""about:logins"" page, and then try to import this CSV file by selecting ""import from a file..."" and choosing my file, something weird happens. If I hover over the whitespace next to the ""view detailed import summary"" link, it doesn't highlight - that's wh","created attachment 9231975
+hover over the whitespace next to the ""view detailed import summary"" link.gif
+
+**[affected versions]:**
+- firefox beta 92.0b4 (build id: 20210801095128)
+
+**[affected platforms]:**
+- windows 10 x64
+- macos 10.15.7
+- linux mint 20.1
+
+**[prerequisites]:**
+- have the latest firefox beta german build installed.
+- have a csv file that contains multiple logins.
+
+**[steps to reproduce]:**
+1. open the firefox browser with the profile from the prerequisites.
+2. navigate to the ""about:logins"" page.
+3. click on the ""import from a file..."" button.
+4. select the csv file from the prerequisites and click on the ""open"" button.
+5. observe the behavior.
+
+**[expected result]:**
+- the link is highlighted on hover.
+
+**[actual result]:**
+- the link is not highlighted on hover.
+
+**[notes]:**
+- the link is highlighted on click.
+- the same behavior is observed for the ""learn more"" page from the import summary page.
+- the same behavior is observed for the error modals for importing er",0,,,,,,2,9231975; 20210801095128,20210801095128; 9231975,,,,1,link.gif,link.gif,,,,0,,,,,,
+1696,qwen2.5-7b,sft,223177bb96b6,"Here's a rewritten version of the bug report in a conversational tone:
+
+""I'm reporting a weird issue with Firefox on Mac OS 12 and Windows 10, but it doesn't happen on Ubuntu 22. When I launch FF, go to the ""Firefox view"" section, log in with my sync credentials and get halfway through the info banner, then navigate to each section of the page using my tab key, something weird happens. Specifically, when I'm in the ""Tab pickup"" section, the keyboard navigation selector highlight gets cut off! Wh","created attachment 9358301
+highlight.png
+
+**found in**
+* 119.0a1 (2023-09-07)
+
+**affected versions**
+* 119.0a1 (2023-09-07)
+
+**tested platforms**
+* affected platforms: mac os 12, windows 10x64
+* unaffected platforms: ubuntu 22
+
+**preconditions**
+* system theme set to dark
+* firefox set to system theme
+
+**steps to reproduce**
+1. launch ff.
+2. go to firefox view section.
+3. login with sync credentials and reach the info banner.
+4. navigate to each section of the page using the tab key.
+
+**expected result**
+* the keyboard navigation selector highlight is visible while navigating through the sections.
+
+**actual result**
+* the keyboard navigation selector highlight is not visible in the ""tab pickup"" section.
+
+**regression range**
+* this is a new feature.
+
+**additional notes**
+* attached a screenshot.",0,,,,,,1,9358301,9358301,,,,1,highlight.png,highlight.png,,,,0,,,,,,
+1904,mistral-7b-v0.3,sft,2037ae17cb12,"Here's the rewritten bug report in a natural, conversational tone:
+
+I was trying to set up CardDAV address books in Thunderbird 91 after upgrading from TB 78. I went to Address Book > File > New > CardDAV Address Book and followed the prompts. First, I entered the address book name, then the URL (""https://domain.com/carddav/"") - it's for my company's GroupOffice suite. When I pressed ""Next"", it asked me for my username and password, which I entered.
+
+But instead of setting up the address books, ","created attachment 9271263
+carddav address book import fails error console details.txt
+
+user agent: mozilla/5.0 (x11; linux x86_64; rv:91.0) gecko/20100101 firefox/91.0
+
+steps to reproduce:
+
+upgraded from tb 78 to tb 91.
+
+address book > file > new > carddav address book
+
+
+actual results:
+
+thunderbird fails to detect the address books.
+
+
+expected results:
+
+it should have detected the two address books (one read only and one regular)
+
+error console says:
+
+nsresult: ""0x80004005 (ns_error_not_available)""
+location: ""js frame :: resource:///modules/url-classifier.jsm :: classify :: line 1009""
+data: no
+
+nsresult: ""0x80004005 (ns_error_not_available)""
+location: ""js frame :: resource:///modules/url-classifier.jsm :: classify :: line 1009""
+data: no
+
+nsresult: ""0x80004005 (ns_error_not_available)""
+location: ""js frame :: resource:///modules/url-classifier.jsm :: classify :: line 1009""
+data: no
+
+nsresult: ""0x80004005 (ns_error_not_available)""
+location: ""js frame :: resource:///modules/url-classifie",0,,,,,,2,9271263; 20100101,20100101; 9271263,,,,1,details.txt,details.txt,,,,14,classifier.jsm; classifier.jsm; classifier.jsm; classifier.jsm; classifier.jsm; classifier.jsm; classifier.jsm; classifier.jsm; classifier.jsm; classifier.jsm; classifier.jsm; classifier.jsm; classifier.jsm; classifier.jsm,classifier.jsm,,,,
+3024,qwen2.5-7b,base,c88a6c55346e,"Here's the rewritten bug report in a natural, conversational tone:
+
+Hey team, I just found a pretty serious issue on Firefox profile accounts.firefox.com. When I tried to upload an SVG file with some malicious code inside (don't worry, it's not actually harmful, just a proof-of-concept), I was able to store an XSS attack that wasn't blocked by the Content Security Policy (CSP). The weird thing is that even though the CSP caught the attack and prevented it from running initially, the file itself ","### summary
+
+the [firefox profile accounts server](https://accounts.firefox.com) is susceptible to reflected xss attacks via svg files containing malicious code. despite the content security policy (csp) blocking the execution of the xss payload, the file itself is still stored on the server, allowing an attacker to exploit this vulnerability at a later time.
+
+### affected versions
+- not provided
+
+### affected platforms
+- not provided
+
+### steps to reproduce
+1. log into a firefox profile account on [https://accounts.firefox.com](https://accounts.firefox.com)
+2. click ""change image profile"" and attach an svg file containing malicious code (e.g., `xss.svg`)
+3. right-click on the uploaded image, select ""inspect element"", and preview it in a new tab
+4. the xss attack should execute and pop up an alert box showing the domain name
+5. right-click on the same image again to open it in a new tab; the xss attack is still stored on the server
+
+### expected result
+- the xss attack should be filter",2,https://accounts.firefox.com); https://accounts.firefox.com](https://accounts.firefox.com),https://accounts.firefox.com); https://accounts.firefox.com](https://accounts.firefox.com),,,,0,,,,,,0,,,,,,5,accounts.firefox.com; accounts.firefox.com; accounts.firefox.com; e.g; xss.svg,e.g,,,,
+2232,qwen2.5-7b,sft,4d3a705d89e2,"Here's a rewritten version of the bug report in a natural, conversational tone:
+
+""So, I've been having this weird issue with PDF forms in Firefox. When I try to fill out a company PDF form using the built-in viewer, everything looks good and normal. But when I go to print it, the size of my input is suddenly enlarged - it's like it's being magnified or something! And the craziest part is that this has happened on multiple versions of Firefox in our office (87 and up). I thought maybe it was just","created attachment 9232100
+pdf form
+
+user agent: mozilla/5.0 (windows nt 10.0; win64; x64; rv:87.0) gecko/20100101 firefox/87.0
+
+steps to reproduce:
+
+i have a company pdf form. i fill it out using the built-in firefox pdf viewer. everything looks normal. then i print it and the size of my input is enlarged. this happens on several versions of firefox in our office (87 and up). i thought it was a one-off, but it persists. even if i fill it out in adobe acrobat, the issue persists. however, if i clear my cache and download the pdf without opening it in firefox first, the input size is correct. so it seems to be an issue with the pdf viewer.
+
+
+actual results:
+
+the input is enlarged when printed.
+
+
+expected results:
+
+the input should be rendered correctly while filling out the form and not enlarged when printing.
+
+if you need the actual pdf file to reproduce this issue, please let me know. i will send it over.",0,,,,,,2,9232100; 20100101,20100101,,,,0,,,,,,0,,,,,,
+3589,qwen2.5-7b,sft,4d3a705d89e2,"Here's the rewritten bug report:
+
+Hey, I wanted to report an issue I'm seeing with Firefox. So, I've got the latest beta German build installed, and I've also got a CSV file that contains multiple logins. When I open the browser, navigate to the ""about:logins"" page, and then try to import this CSV file by selecting ""import from a file..."" and choosing my file, something weird happens. If I hover over the whitespace next to the ""view detailed import summary"" link, it doesn't highlight - that's wh","created attachment 9217046
+whitespace.png
+
+**[affected versions]:**
+- firefox beta 89.0b2 (build id: 20210418185936)
+- firefox nightly 90.0a1 (build id: 20210419221626)
+
+**[affected platforms]:**
+- windows 10
+- macos 11.1
+- linux mint 20
+
+**[prerequisites]:**
+- have the latest firefox de beta build installed.
+- have a csv file containing multiple logins.
+
+**[steps to reproduce]:**
+1. open the browser with the profile from prerequisites.
+2. navigate to the “about:logins” page.
+3. click the meatball menu button (“...”).
+4. choose the “import from a file...” option.
+5. choose the csv from prerequisites and import it.
+6. observe the whitespace next to the “view detailed import summary” link.
+7. hover over the whitespace.
+8. click the whitespace.
+9. observe the behavior.
+
+**[expected result]:**
+- the whitespace is not highlighted.
+ 
+**[actual result]:**
+- the whitespace is highlighted.
+
+**[notes]:**
+- the same behavior can be observed for the “learn more” link from the import summary page.
+",0,,,,,,3,9217046; 20210418185936; 20210419221626,20210418185936; 20210419221626; 9217046,,,,1,whitespace.png,whitespace.png,,,,0,,,,,,
+641,mistral-7b-v0.3,base,dac16ee89fd4,"Here's the rewritten bug report:
+
+I'm reporting an issue I found in Firefox 119.0b7, which also affects the latest development version (120.0a1) as of October 10th, 2023. The problem doesn't appear on Ubuntu 22.1, macOS 12, or Windows 10x64, but it does pop up on my Windows 11x64 machine. To reproduce this bug, I need to have the contrast theme set to Night Sky. Here's what you gotta do: open an Amazon product page, take a look at the review checker, and then compare it to some design specs in F","**affected versions**
+- Firefox 119.0b7
+- Firefox development version (120.0a1)
+
+**affected platforms**
+- Windows 11x64
+
+**steps to reproduce**
+1. Set the contrast theme to Night Sky.
+2. Open an Amazon product page.
+3. Observe the review checker.
+4. Compare the review checker to the design specs in Figma (link provided).
+
+**expected result**
+- The frame around the chevron arrows from ""How we determine review quality"" and ""Settings"" should be visible.
+
+**actual result**
+- The frame around the chevron arrows is not visible.
+
+**regression range**
+- The issue appears in Firefox 119.0b7 and the latest development version (120.0a1) as of October 10th, 2023.
+
+**notes**
+- The issue does not appear on Ubuntu 22.1, macOS 12, or Windows 10x64.
+- The issue is reproducible on the Windows 11x64 machine.
+- The issue applies to all review checker states, not just one specific scenario.
+- A screenshot has been attached for reference.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+2413,qwen2.5-7b,dpo,c40a4351ac1f,"Here's the rewritten bug report in a conversational tone:
+
+So, I noticed this weird thing happening - I opened up a brand new composer window and tried to hide the format toolbar by going to View > Show/Hide > Format. And sure enough, it disappeared just like I wanted. But then things got weird. When I went back to View and tried to switch between Normal Edit Mode, HTML Tags, or Preview, the format toolbar suddenly popped back up again! It's like it forgot I told it to hide in the first place. I","**affected versions**
+
+firefox 60.0
+
+**affected platforms**
+
+windows 10
+
+**steps to reproduce**
+
+1. launch firefox.
+2. open a new composer window.
+3. click on view > show/hide > format.
+4. click on view > normal edit mode/html tags/preview.
+
+**expected result**
+
+the format toolbar should remain hidden.
+
+**actual result**
+
+the format toolbar is displayed after changing the edit mode.
+
+**regression range**
+
+not a regression.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+157,llama-3.2-3b,dpo,b1be3a6007ad,"Here's a rewritten version of the bug report in a natural, conversational tone:
+
+""I'm seeing this weird bug in Firefox Developer Edition (v 107.0b5). What happens is that when I use the 'Show Desktop' button on my Windows taskbar to minimize all windows, then click it again to bring them back up - something goes haywire with the browser! Specifically, the UI freezes (I can't interact with the search bar or menu), and the website I'm looking at stops responding to clicks and typing. But here's th","**affected versions**
+firefox developer edition v107.0b5
+
+**affected platforms**
+windows 10
+
+**steps to reproduce**
+open a new window | then play any video but ""fullscreen"" 
+now switch to another window {firefox window }
+now the taskbar dissappears and is replaced by the bottom part of the full-screen video 
+
+
+**expected results**
+the taskbar should have remained visible 
+
+**actual results**
+the taskbar dissappears and is replaced by the bottom part of the full-screen video 
+
+*it  happens only when two firefox windows are open in order   *
+
+
+**regression range**
+firefox 106.0.1
+
+**notes**
+firefox developer edition
+firefox 106.0.1
+disabling accessibility features
+disabling hardware acceleration",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+1572,llama-3.2-3b,base,699e09d31832,"Here's the rewritten bug report in a natural, conversational tone:
+
+""I'm experiencing an issue with Firefox on my Windows 10, Linux Mint 20, and macOS 11.1 machines. It happens when I have certain preferences set - specifically, `browser.urlbar.quicksuggest.enabled`, `browser.urlbar.quicksuggest.scenario`, `browser.urlbar.suggest.quicksuggest`, and `browser.urlbar.suggest.quicksuggest.sponsored` all turned on. To reproduce the bug, I need to restart Firefox after setting those prefs, dismiss any","Here's the rewritten response:
+
+""Thanks for the detailed report! I've taken note of the issue and will review the code to see if I can reproduce the problem. Can you please confirm if the issue persists across different Firefox versions and platforms? Also, have you tried any workarounds or fixes that might help resolve the issue?""",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+3505,llama-3.2-3b,base,699e09d31832,"Here's a rewritten version of the bug report in a conversational tone:
+
+""I ran into an issue while using Firefox recently, and I thought I'd report it so the developers can take a look. It happens when you launch Firefox and access the 'about:policies' page. If you try to use the tab key to navigate to the section pickers (like active or documentation), it skips right over those sections and jumps straight to the buttons inside them, which isn't what I expected. This seems to happen on both my U","""Thanks for the detailed report! I've taken note of the issue and will make sure to pass it along to the developers. Can you confirm if this is a new issue or if it's been happening for a while? Also, have you noticed any other issues or patterns with this behavior?"" 
+
+### Follow-up:
+""Hi again! I've been digging into the code and I think I found the root cause of the problem. It seems like there's a bug in the way the tab navigation handles the active section pickers. I've attached a code snippet that shows the issue. Let me know if you'd like me to explain further or if you'd like to take a look at the code yourself."" 
+
+### Additional Notes:
+""Thanks for your patience and for helping me improve the bug report template. I think this template will be super helpful for other users who want to report issues. If you have any other questions or need further clarification, feel free to ask!"" 
+
+### Bug Report Template:
+*   **bug report template**
+*   **bug report template**
+*   **bug report te",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+3930,llama-3.2-3b,base,b22071a19668,"Here's the rewritten bug report:
+
+Hey, I'm trying to troubleshoot an issue with Firefox on my MacBook running macOS 10.15. When I go to a video conferencing site, join a meeting, and then try to switch up my audio input or output devices, things don't quite add up. Specifically, the list of available devices in Firefox doesn't seem to be complete - it's like some options are missing. And if I keep testing this out, Firefox just freezes on me, which is pretty frustrating. To illustrate the proble","**affected versions**
+- Firefox 74.0.1 (latest version I'm using)
+
+**affected platforms**
+- MacBook running macOS 10.15
+
+**steps to reproduce**
+1. Open Firefox on the MacBook.
+2. Go to a video conferencing site.
+3. Join the meeting.
+4. Attempt to switch audio input or output devices in Firefox.
+
+**expected result**
+- A complete list of available audio devices in Firefox.
+- The ability to select an audio output device.
+
+**actual result**
+- An incomplete list of available audio devices in Firefox.
+- Firefox freezes when attempting to switch audio devices.
+
+**regression range**
+- Not provided
+
+**notes**
+- The issue seems to be specific to Firefox, as I've tried it on other browsers and it doesn't happen there.
+- I've attached a screenshot to illustrate the discrepancy between Firefox and macOS device settings.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+1803,mistral-7b-v0.3,dpo,921c362b8439,"Here's the rewritten bug report:
+
+So, I was updating Thunderbird from version 78.0 to 91.0.1 and after that, I started noticing some weird issues with encryption. Apparently, when I went to read old emails that were encrypted with certificates that had expired, they just wouldn't open up anymore - it's like the expiration date somehow broke the encryption. And then things got even weirder: whenever I sent an encrypted email, I couldn't read any more encrypted emails after that. The TB reports sa","**affected versions**
+* 78.0
+* 91.0.1
+
+**affected platforms**
+* windows 10
+
+**steps to reproduce**
+1. update from 78.0 to 91.0.1
+2. read old encrypted emails with certificates that have expired
+3. send encrypted email
+4. read encrypted emails
+5. report says no certificates
+6. send signed or encrypted email
+7. windows security dialog appears asking if you want to allow thunderbird access to your private key
+8. see attached image
+
+**expected result**
+* everything should work as usual after the update
+
+**actual result**
+* encryption does not work anymore
+* encryption does not work anymore after sending an encrypted email
+* report says no certificates
+* windows security dialog appears asking if you want to allow thunderbird access to your private key
+* encryption certificate is not stored on the yubikey smartcard
+
+**regression range**
+* not a regression
+
+**additional notes**
+* see attached image",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+2655,llama-3.2-3b,base,699e09d31832,"Here's the rewritten bug report:
+
+I was messing around with Firefox and noticed this weird issue. It happens on versions 90.0b3 and 91.0a1, and I've seen it on both Windows 8.1/10 and Ubuntu 20.04 - so it's not just a one-off thing! To reproduce the bug, you can follow these steps: open Firefox, go to about:preferences#privacy, click on settings for autoplay, add a website to the list, then press tab a few times until you're focusing on the status part. What I expected to happen was that the foc",Thanks for the detailed report! I've taken note of the issue and will investigate further. I'll make sure to test it on different platforms and versions to see if it's a one-off or a more widespread problem. I'll also look into the focus issue in the autoplay settings and see if there are any other places where it might be occurring. Thanks again for your patience and for helping us make Firefox better!,0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+1010,llama-3.2-3b,base,b22071a19668,"Here's a rewritten version of the bug report in a natural, conversational tone:
+
+""So I was trying to add a friend on Discord using Firefox and I noticed that it kept auto-filling my login info into the 'Add Friend' field - which is super weird! Apparently when you go to add a new friend, Firefox thinks it's supposed to fill in your login credentials instead of just leaving the field blank. Like, what even is going on? It's like Firefox is trying to be helpful or something, but honestly, it's rea","**affected versions**
+- Firefox 90.0.2
+
+**affected platforms**
+- Windows 10
+
+**steps to reproduce**
+1. Open Firefox 90.0.2 on Windows 10.
+2. Navigate to the Discord website.
+3. Click on the ""Add Friend"" button.
+4. Observe that the login credentials are auto-filled into the ""Add Friend"" field.
+
+**expected result**
+- The login credentials are not auto-filled into the ""Add Friend"" field.
+
+**actual result**
+- The login credentials are auto-filled into the ""Add Friend"" field.
+
+**regression range**
+- Not provided
+
+**notes**
+- This issue seems to be related to Firefox's auto-fill feature, which may be causing the problem. Further investigation is needed to determine the root cause.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+3395,llama-3.2-3b,dpo,9f389d7eceda,"Here's the rewritten bug report:
+
+So, I'm seeing this weird issue in Firefox where the icons at the bottom of the responsive design mode (you know, when you access about:devtools and scroll down) look super wonky when I'm running it on Windows 10 or Ubuntu 20. The problem is that instead of being properly displayed, they show up as tiny white dots. This happens regardless of whether my OS or Firefox itself are set to dark mode - it's like the icons just get completely lost in the darkness. What ","**affected versions**
+* firefox 89
+
+**affected platforms**
+* windows 10
+* ubuntu 20
+
+**steps to reproduce**
+1. access about:devtools
+2. scroll down
+
+**expected result**
+* icons are properly displayed
+
+**actual result**
+* icons are displayed as white dots
+
+**regression range**
+* not a regression
+
+**notes**
+* icons are displayed as white dots regardless of the os or firefox dark mode",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+276,mistral-7b-v0.3,dpo,eaf2a22248de,"Here's the rewritten bug report:
+
+I'm running into an issue where there's a delay when setting Firefox as the default browser through the about:welcome page in MSIX builds, specifically versions 125.0a1, 125.0b2, and 124.0. I've tested it on Windows 10x64 and Windows 11 (with or without Microsoft One-Click Rollout), but it's not happening on Mac OS 12 or Ubuntu 23.10. The weird thing is that this only happens when Firefox is set as the default browser - if Chrome is the default, no delay occurs.","**found in**
+* 122.0a1 (2023-12-14)
+
+
+**affected versions**
+* 125.0a1 (2023-12-14) 
+* 125.0b2 (2023-12-14) 
+* 124.0 (2023-12-14) 
+
+
+
+
+
+
+**tested platforms**
+* affected platforms: windows 11x64 (23h2)- stations that one click set as default does not work due to microsoft rollout
+* unaffected platforms: windows 11x64 (22h2 and 23h2 where default one click works), macos 12, ubuntu 22
+
+**preconditions**
+* firefox is set as the default browser
+
+**steps to reproduce**
+1. open about:welcome and select to set firefox msix as the default browser.
+2. click the `set as default` button.
+3. click the `set as default` button again.
+4. click the `set as default` button again.
+5. click the `set as default` button again.
+6. click the `set as default` button again.
+7. click the `set as default` button again.
+8. click the `set as default` button again.
+9. click the `set as default` button again.
+10. click the `set as default` button again.
+11. click the `set as default` button again.
+12. click the `set a",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+1873,mistral-7b-v0.3,dpo,2d41b456d27e,"Here's a rewritten version of the bug report in a natural, conversational tone:
+
+So, I've got a weird issue with Firefox 91.0 on my Linux machine. I was using Firefox 80 and then upgraded to 81, which caused some problems (I filed bug #1667464). But after updating to v83.0, everything worked fine again.
+
+Fast forward to when I updated from Firefox 90.0.2 to 91.0 - that's when things got weird. My Sony WH-XB900N headset stopped working properly with web conferencing software like 3CX and Webex du","**affected versions**
+* firefox 91.0
+
+**affected platforms**
+* linux
+
+**steps to reproduce**
+1. update from firefox 90.0.2 to 91.0.
+2. reboot your machine.
+3. connect your headset (in my case, sony wh-xb900n).
+4. go to a web conferencing site and grant access to the microphone.
+5. make a call or start a meeting - the mic should work, but it doesn't.
+
+**expected result**
+* the microphone should work.
+
+**actual result**
+* the microphone doesn't work.
+
+**regression range**
+* this is a regression between v90.0.2 and v91.0.
+
+**additional notes**
+* the speaker works fine, but the microphone is always muted.
+* going back to firefox 90.0.2, rebooting, and connecting the headset again works without issues.
+* i tried using a new profile and no extensions at all, but the problem persists.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+3395,qwen2.5-7b,dpo,723e34653413,"Here's the rewritten bug report:
+
+So, I'm seeing this weird issue in Firefox where the icons at the bottom of the responsive design mode (you know, when you access about:devtools and scroll down) look super wonky when I'm running it on Windows 10 or Ubuntu 20. The problem is that instead of being properly displayed, they show up as tiny white dots. This happens regardless of whether my OS or Firefox itself are set to dark mode - it's like the icons just get completely lost in the darkness. What ","**affected versions**
+* fx93
+* fx94 rc
+
+**affected platforms**
+* windows 10
+* ubuntu 20
+
+**steps to reproduce**
+1. launch firefox.
+2. access about:devtools.
+3. scroll down the page.
+
+**expected result**
+* the icons are properly displayed.
+
+**actual result**
+* the icons are displayed as a small white dot.
+
+**regression range**
+* not a regression.
+
+**additional notes**
+* the issue can be seen on both dark os and firefox.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+641,qwen2.5-7b,dpo,fe84e2a6c571,"Here's the rewritten bug report:
+
+I'm reporting an issue I found in Firefox 119.0b7, which also affects the latest development version (120.0a1) as of October 10th, 2023. The problem doesn't appear on Ubuntu 22.1, macOS 12, or Windows 10x64, but it does pop up on my Windows 11x64 machine. To reproduce this bug, I need to have the contrast theme set to Night Sky. Here's what you gotta do: open an Amazon product page, take a look at the review checker, and then compare it to some design specs in F","**found in**
+* firefox 119.0b7
+
+**affected versions**
+* firefox latest dev 120.0a1 as of 10/10
+
+**unaffected versions**
+* ubuntu 22.1
+* macos 12
+* windows 10x64
+
+**affected platforms**
+* windows 11x64
+
+**preconditions**
+* contrast theme set to night sky
+
+**steps to reproduce**
+1. access amazon product page.
+2. observe the review checker.
+3. compare it to figma.
+
+**expected result**
+* frame around the chevron arrows from how we determine review quality and settings should be visible.
+
+**actual result**
+* frame around the chevron arrows from how we determine review quality and settings are not visible.
+
+**regression range**
+* not a regression.
+
+**additional notes**
+* attached screenshot. this issue is reproducible for all review checker states.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+2442,mistral-7b-v0.3,base,dac16ee89fd4,"Here's a rewritten version of the bug report in a conversational tone:
+
+""So, I noticed that when I launch Firefox on my Ubuntu 20.04.2 LTS machine and go to customize the toolbar, something weird happens. When I click on the themes button at the bottom and select the dark theme, all the customization footer buttons are supposed to be visible, but they're not. Instead, you only see them if you hover over the area where they should be. It's like they're hidden or something! This didn't happen befo","**affected versions**
+- Firefox (not provided)
+
+**affected platforms**
+- Ubuntu 20.04.2 LTS
+
+**steps to reproduce**
+1. Launch Firefox
+2. Go to customize the toolbar
+3. Click on the themes button
+4. Select the dark theme
+
+**expected result**
+- All customization footer buttons should be visible when the dark theme is selected
+
+**actual result**
+- Customization footer buttons are only visible when hovering over the area where they should be
+
+**regression range**
+- Started after some recent changes
+
+**notes**
+- The issue does not seem to affect Windows 10 or Mac OS 10.15
+- A screenshot or screen cast has been attached to demonstrate the issue
+
+**additional information**
+- The issue occurs on the Ubuntu 20.04.2 LTS platform only",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+182,llama-3.2-3b,dpo,aa39b6d20269,"Here's a rewritten version of the bug report in a natural, conversational tone:
+
+""I'm reporting an issue with Firefox 97.0a1 (20220105093353) on my Mac. It seems to be affecting all versions of macOS from 10.13 to 12.1, but the problem is more intermittent on the newer OS versions like 11.6 and 12.1. To reproduce the bug, I open Firefox and enable the title bar, then switch to fullscreen mode and move my mouse up to the top of the screen. What should happen is that the title bar stays nicely abo","**[affected versions]:**
+- firefox 97.0a1
+
+**[affected platforms]:**
+- macos 10.13
+- macos 11.6
+- macos 12.1
+
+**[steps to reproduce]:**
+1. open firefox.
+2. enable the title bar.
+3. switch to fullscreen mode.
+4. move the mouse up to the top of the screen.
+
+**[expected result]:**
+- the title bar is above the tab bar.
+
+**[actual result]:**
+- the title bar overlaps the tab bar.
+
+**[regression]:**
+- this is not a regression.
+
+**[notes]:**
+- attached is a screen recording.
+- the issue is intermittent.
+- the issue is reproducible with both the native fullscreen mode and the one enabled manually.
+- the issue is not reproducible on mac mini m1 with macos 11.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+3578,mistral-7b-v0.3,base,dac16ee89fd4,"Here's the rewritten bug report in a conversational tone:
+
+I'm reporting an annoying issue with Firefox that I've been experiencing lately. When I try to import a CSV file with around 1000 logins, it takes anywhere from 3 to 10 minutes to finish. And let me tell you, during this process, things get pretty sluggish. Like, really slow. Here are some specific examples of what happens: when I try to navigate to any webpage using the address bar, Firefox just freezes - I can't do anything until all t","**affected versions**
+- Firefox Beta (88.0b)
+- Firefox Nightly (89.0a1)
+
+**affected platforms**
+- Windows 10
+- macOS 10.15.7
+- Linux Mint 20
+
+**steps to reproduce**
+1. Open Firefox with your profile set up.
+2. Navigate to the about:logins page.
+3. Click ""import from a file..."" and select a large CSV file containing multiple logins.
+4. Wait until around 800 logins are imported (it gets worse after that).
+5. Open a new tab, click on some top sites, navigate to multiple websites, open different menus... just observe how slow everything is.
+
+**expected result**
+- No noticeable performance issues when performing the above steps.
+
+**actual result**
+- The browser becomes sluggish and slow during the import process, and remains slow even after the import is complete.
+
+**regression range**
+- Not provided
+
+**notes**
+- Performance profiles have been captured using the Firefox profiler addon on multiple machines. Links to the profiles can be found in the provided text.
+- A large CSV file containin",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+2414,mistral-7b-v0.3,base,dac16ee89fd4,"Here's the rewritten bug report:
+
+So, I'm running Firefox 60.0 on a Windows 10 machine, and I'm seeing this weird behavior with the format toolbar in the composer window. Essentially, what happens is that if you hide the format toolbar by going to View > Show/Hide > Format Toolbar, it'll disappear as expected. But then, if you switch back to normal edit mode or preview view (or even just toggle back and forth between those modes), the toolbar suddenly pops back up again - which isn't what I'd ex","**affected versions**
+- Firefox 60.0
+
+**affected platforms**
+- Windows 10
+
+**steps to reproduce**
+1. Open Firefox 60.0 on a Windows 10 machine.
+2. Navigate to the composer window.
+3. Hide the format toolbar by going to View > Show/Hide > Format Toolbar.
+4. Switch to normal edit mode or preview view (or toggle back and forth between those modes).
+
+**expected result**
+- The format toolbar should remain hidden after it has been hidden.
+
+**actual result**
+- The format toolbar reappears when switching away from it.
+
+**regression range**
+- Not provided (new issue)
+
+**notes**
+- The issue seems to be related to the format toolbar in the composer window.
+- The toolbar reappears when switching away from it, even when it has been hidden.
+- This behavior is not expected and may cause confusion for users.
+- Further investigation is needed to determine the root cause of this issue.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+1804,llama-3.2-3b,base,b22071a19668,"Here's the rewritten bug report:
+
+So, I updated Thunderbird to version 91.0.1 and noticed some weird issues with encryption. Apparently, it removed some expired certificates - which is cool, but now when I try to read old emails that were encrypted with those certs, it doesn't work anymore. That's not all, though: after sending an encrypted email, I can no longer read any other encrypted messages at all - TB reports that they're missing their certificates altogether! And if I try to send a signe","Here's a structured bug report based on the input:
+
+**affected versions**
+- Thunderbird 91.0.1
+
+**affected platforms**
+- Windows
+
+**steps to reproduce**
+1. Update Thunderbird to version 91.0.1
+2. Send an encrypted email
+3. Try to read an encrypted email from a previous version
+4. Try to send a signed or encrypted email
+
+**expected result**
+- The encrypted email should be readable
+- The signed or encrypted email should be sent successfully
+
+**actual result**
+- The encrypted email is not readable
+- The signed or encrypted email fails to send
+- A Windows security prompt appears asking for permission to access the private key
+
+**regression range**
+- Not provided
+
+**notes**
+- The encryption cert is not stored on the YubiKey smartcard
+- A screenshot is attached for further reference
+
+This rewritten bug report follows the rules and provides a clear, structured summary of the issue.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+3266,mistral-7b-v0.3,dpo,2d41b456d27e,"Here's the rewritten bug report in a natural, conversational tone:
+
+""I'm reporting an issue with Firefox version 89.0a1 (specifically, the build from April 14th, 2021) on Windows 10 x64. The problem is that the Overflow menu doesn't work as expected when I open it and then click the back arrow a few times. What should happen is that the bookmarks menu pops up again, but instead, nothing happens at all. When I look in the browser console, I see some errors (you can check them out here: [link]). T","**affected versions**
+* 89.0a1 (2021-04-14)
+
+**affected platforms**
+* windows 10 x64
+
+**steps to reproduce**
+1. open the overflow menu and click the back arrow a few times.
+2. observe the behavior.
+
+**expected result**
+* the bookmarks menu pops up again.
+
+**actual result**
+* nothing happens.
+
+**regression range**
+* not a regression.
+
+**notes**
+* see the errors in the browser console.
+
+**affected versions**
+* not reproducible on ubuntu 20.
+* not reproducible on macos 10.15.
+
+**steps to reproduce**
+1. intermittent.
+
+**expected result**
+* not reproducible on ubuntu 20.
+* not reproducible on macos 10.15.
+
+**regression range**
+* intermittent.
+
+**notes**
+* attached a screen recording.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+560,qwen2.5-7b,dpo,fe84e2a6c571,"Here's a rewritten version of the bug report in a casual tone:
+
+So, I noticed this weird issue while digging around in the secret debug menu on my Android device. To reproduce it, you need to follow these steps: first, flip the switch to turn on the secret debug mode; then, navigate over to the settings and find the section with all the juicy debug info - yeah, that one! Finally, toggle dark mode on. Now, here's what I expected to happen: when you do this, the text in the settings should still b","**found in**
+* nightly 126.0a1
+
+**affected versions**
+* nightly 126.0a1
+
+**tested platforms**
+* affected platforms: android 14
+* unaffected platforms: none
+
+**pre-requisites**
+* firefox is set to ""follow system theme"" in dark mode
+
+**steps to reproduce**
+1. flip the switch to turn on secret debug mode
+2. navigate to settings > about firefox
+3. toggle dark mode on
+4. observe the text in the settings
+
+**expected result**
+* text remains readable in dark mode
+
+**actual result**
+* text turns dark as well and does not follow the original theme
+
+**additional notes**
+* this is a regression",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+551,llama-3.2-3b,base,699e09d31832,"Here's the rewritten bug report in a conversational tone:
+
+""I'm using Firefox 119.0 on my Mac (running macOS 10.15). When I open a new private window and visit this URL: https://freckle-like-move.glitch.me/, everything seems normal until I click on the settings icon and see that 'cross-site cookies' are enabled for the framed site. Then, I noticed something weird - when I click the 'refresh cookies' button (which is actually an iframe), no cookies load at first (makes sense since there aren't an","Here's a response to the bug report:
+
+""Thank you for providing a detailed description of the issue. I've been able to reproduce the problem and it seems to be related to the way Firefox handles cookies in private windows. The issue is that when you enable cross-site cookies and then click the'refresh cookies' button, the cookies are not sent to the iframe until the page is reloaded. This is a known issue in Firefox and we're working on a fix. In the meantime, you can try using the `--allow-geolocation` flag when opening the private window to see if that resolves the issue. We'll also look into adding a workaround to the Storage Access API to allow cookies to be sent to the iframe without needing to reload the page.""",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+535,qwen2.5-7b,base,c88a6c55346e,"Here's the rewritten paragraph:
+
+So I was testing something and I stumbled upon this weird issue. To reproduce it, you gotta navigate to this special URL: `data:text/html,<meta charset=utf8><style>@property --b { syntax: '<length>'; inherits: true; initial-value: 100px; } h1 { --b: blue;color: var(--b); }</style><h1>hello</h1>` - yeah, it's a long URL. Then you gotta open up the Chrome DevTools and select the `<h1>` node in the inspector. What I expected to happen is that when you do that, the `","**steps to reproduce**
+1. open chrome devtools
+1. navigate to the following URL: `data:text/html,<meta charset=utf8><style>@property --b { syntax: '<length>'; inherits: true; initial-value: 100px; } h1 { --b: blue;color: var(--b); }</style><h1>hello</h1>`
+1. select the `<h1>` node in the inspector
+
+**expected result**
+- the `--b: blue` property should be marked as invalid due to mismatched syntax
+- the `color: var(--b)` property should also be marked as invalid
+
+**actual result**
+- the `--b: blue` property is not marked as invalid
+- a tooltip appears showing the reason for the invalid value
+
+**regression range**
+- not provided
+
+**notes**
+- not provided
+
+### Input:
+I was trying to test something and I found this weird issue. I opened up Chrome DevTools and went to the Elements tab. I selected a `<div>` element and noticed that the `width` property was set to `auto`. When I hovered over the `width` property in the Styles panel, the tooltip showed that the value was `auto`, but when I tri",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+2597,qwen2.5-7b,dpo,fe84e2a6c571,"Here's the rewritten bug report:
+
+Hey, I've got a weird issue with Firefox that I wanted to report. So, when I'm on the ""keep in dock"" or ""pin to taskbar"" upgrading users flow (yeah, it sounds complicated, but just go with me here), and I have the browser set up a certain way (specifically, I had `browser.shell.checkdefaultbrowser` set to `false`), the primary button doesn't display correctly. Instead of showing the ""choose a theme"" option like it should, it shows the ""make Firefox my default br","**[affected versions]:**
+firefox beta 89
+
+**[affected platforms]:**
+windows 10 x64
+macos 11.4
+ubuntu linux 20.04
+
+**[prerequisites]:**
+firefox beta 89 is installed and pinned.
+
+**[steps to reproduce]:**
+1. upgrade the firefox beta 89 to the latest version.
+2. observe the primary button.
+
+**[expected results]:**
+the ""choose a theme"" option is displayed on the primary button.
+
+**[actual results]:**
+the ""make firefox my default browser"" option is displayed on the primary button.
+
+**[notes]:**
+the issue is not reproducible on the ""keep in dock"" upgrading users flow.
+the issue can be seen in the attachment.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+1663,llama-3.2-3b,dpo,aa39b6d20269,"Here's a rewritten version of the bug report:
+
+Hey team, I'm reporting an issue that's been driving me nuts! I've got Firefox 91.0.2 installed on Windows 10, macOS 11.4.2, and Ubuntu Linux 20.04, with Normandy Devtools add-on enabled. The setup is a bit specific, though: I need to have a disabled recipe created beforehand. 
+
+Here's what happens when I reproduce the bug: I open Firefox with the profile from before, enable the Normandy Devtools, log in with my credentials, switch to ""stage"" enviro","**[affected versions]:**
+- firefox 91.0.2
+
+**[affected platforms]:**
+- windows 10
+- macos 11.4.2
+- ubuntu linux 20.04
+
+**[prerequisites]:**
+- have firefox 91.0.2 installed.
+- have a disabled recipe created beforehand.
+
+**[steps to reproduce]:**
+1. open firefox with the profile from prerequisites.
+2. enable normandy devtools.
+3. log in with valid credentials.
+4. switch to stage environment.
+5. load a disabled recipe.
+6. open network monitor (ctrl+shift+e).
+7. click the enable button from the top right part of the page.
+
+**[expected result]:**
+- the recipe is enabled after 10 minutes.
+- the recipe is available in the ""main/normandy-recipes-capabilities"" collection.
+
+**[actual result]:**
+- 500 server error is displayed in the network monitor.
+- the recipe is not available.
+
+**[notes]:**
+- attached is a recording of the issue.
+- refresh the normandy devtools page and observe the recipe is now displayed as enabled.
+- recipe used for testing: #1461
+- recipe used for testing: #1460 was disabl",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+3394,qwen2.5-7b,dpo,8dcd2cba30c5,"Here's my attempt at rewriting the bug report in a conversational tone:
+
+""I'm experiencing an issue with Firefox where the icons in the Responsive Design Mode (RDM) section of the About:DevTools page are showing up as white dots instead of their normal display. This happens when I have both my OS and Firefox set to dark theme, by the way. To reproduce this bug, you can follow these steps: start with your OS and Firefox in dark mode, then navigate to the About:DevTools page, scroll down to the ic","**affected versions**
+* 89.0a1 (2021-05-18)
+* 78.9.0esr
+
+**tested on**
+* macos 11.3.1
+* windows 10x64
+
+**preconditions**
+* os and firefox in dark theme
+
+**steps to reproduce**
+1. reach about:devtools page
+2. scroll down to responsive design mode section
+3. observe the icons
+
+**expected result**
+* icons are properly displayed
+
+**actual result**
+* white dots are visible at the bottom of rdm
+
+**regression**
+* not a recent regression
+
+**additional notes**
+* attached a screenshot
+* i would like to confirm if this is reproducible on other platforms as well.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+3591,mistral-7b-v0.3,dpo,2d41b456d27e,"Here's the rewritten bug report:
+
+I've been noticing this weird behavior in Firefox - it seems like when I have the latest beta German build installed and I'm importing logins from a CSV file, certain links get highlighted unexpectedly! It happens on multiple platforms I've tested: Windows 10 x64, macOS 10.15.7, and Linux Mint 20 x64.
+
+To reproduce this issue, you'll need to follow these steps:
+
+1. Open Firefox with the profile that has the latest beta German build installed.
+2. Head to the ""abo","**affected versions**
+* latest beta german build
+
+**affected platforms**
+* windows 10 x64
+* macos 10.15.7
+* linux mint 20 x64
+
+**steps to reproduce**
+1. open firefox with the profile that has the latest beta german build installed.
+2. open the ""about:logins"" page.
+3. open the menu, click on ""import from a file..."" and select the csv file containing multiple logins.
+4. when you're done importing, hover your mouse over the white space beside the ""view detailed import summary"" link.
+5. click that link - it highlights!
+6. repeat steps 3-5 to confirm this isn't just a one-time fluke.
+7. next, hover over the white space beside the ""learn more"" link on the ""import summary"" page.
+
+**expected result**
+* none of these links should be highlighted.
+
+**actual result**
+* they are, and if you click that whitespace, it takes you straight to the linked page!
+
+**regression range**
+* not a regression.
+
+**additional notes**
+* i've attached a screen recording of this issue.
+* it's also reproducible when th",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+3267,llama-3.2-3b,dpo,aa39b6d20269,"Here's the rewritten bug report in a natural, conversational tone:
+
+""I'm reporting a weird issue with Firefox - when I open the bookmarks menu and try to save something to Pocket, nothing happens! I've tried reproducing it multiple times, but the problem only shows up occasionally. It seems to be related to the Overflow menu specifically. When I click on the bookmarks menu button and then back arrow again, I'd expect to see the menu pop up, but instead I get a bunch of errors in the browser cons","**affected versions**
+* 2021-04-14
+
+**affected platforms**
+* ubuntu
+* macos
+
+**steps to reproduce**
+1. open firefox.
+2. click on the bookmarks menu button.
+3. click on the back arrow.
+
+**expected result**
+* the bookmarks menu is displayed.
+
+**actual result**
+* the bookmarks menu is displayed with errors in the browser console. 
+
+**regression range**
+* pushlog showing regression range.
+
+**notes**
+* the issue is intermittent.
+* the issue is not reproducible with proton disabled.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+2680,qwen2.5-7b,dpo,723e34653413,"Here's the rewritten bug report:
+
+Hey there, I'm reporting an issue with Firefox Nightly that I think you should know about. So, here's what happened: I was messing around in the ""about:logins"" page, and when I tried to import logins from a file (not CSV, just some other format), something weird happened. See, when I hovered over the blank space next to the ""learn more"" link, it started highlighting that link! Not only that, but if I clicked on the blank space, it actually took me to that link t","**affected versions**
+* firefox nightly 
+
+**affected platforms**
+* mac
+* windows
+* ubuntu
+
+**steps to reproduce**
+1. reach the ""about:logins"" page.
+2. click on the ""import logins from a file"" button.
+3. hover over the blank space next to the ""learn more"" link.
+4. click on the blank space next to the ""learn more"" link.
+
+**expected result**
+* the learn more link should be highlighted upon hovering over it, but clicking on the blank space should not redirect the user to the link.
+
+**actual result**
+* the learn more link is highlighted upon hovering over the blank space next to it and clicking on the blank space redirects the user to the link.
+
+**regression range**
+* this is not a regression.
+
+**additional notes**
+* the focus of the ""learn more"" link seems too big as well.
+* fyi, the issue is also reproducible on the ""export logins to a file"" button.
+* attached is a screen recording of the issue.",0,,,,,,0,,,,,,0,,,,,,0,,,,,,
+2324,mistral-7b-v0.3,dpo,eaf2a22248de,"Here's the rewritten bug report in a natural tone:
+
+""So I've got this weird issue with Thunderbird - when I start it up and then click 'Get Messages' (I have it set not to check on startup), I expect to see some activity going on in the Activity Manager window, but instead it just stays blank. And here's the kicker: if there are no new messages to download, it literally shows nothing at all - like, it's like the whole thing is turned off. But even when there are new messages waiting to be downlo","**found in**
+* beta 93.0b3
+
+**affected versions**
+* beta 94.0b1
+
+**tested platforms**
+* windows nt 6.1; win64; x64; rv:93.0
+
+**steps to reproduce**
+1. start thunderbird beta 93.0b3 and click 'get messages' (not checked on startup)
+2. observe the activity manager window
+
+**expected result**
+* the activity manager window shows the activity of the email accounts and the downloading of new messages
+
+**actual result**
+* the activity manager window does not show the activity of the email accounts and the downloading of new messages
+
+**regression range**
+* not a regression
+
+**additional notes**
+* in older versions of thunderbird (tb91 and before) the activity manager window showed the activity of the email accounts and the downloading of new messages",0,,,,,,0,,,,,,0,,,,,,0,,,,,,

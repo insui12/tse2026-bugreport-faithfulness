@@ -1,0 +1,21 @@
+{
+  "command": "data-prepare",
+  "timestamp": "20260226_174935",
+  "seed": 42,
+  "raw_path": "/home/selab/2026/2022810073-최서진/EMSE_DPO_v2/data/Plus14_filtered_bug_report_scores_Summary.xlsx",
+  "input_col": "NEW_llama_output",
+  "gt_col": "text",
+  "keep_cols": [],
+  "split_mode": "group",
+  "group_col": "group_id",
+  "sizes": {
+    "train": 3139,
+    "val": 436,
+    "test": 391
+  },
+  "unique_groups": {
+    "train": 2095,
+    "val": 262,
+    "test": 262
+  }
+}
